@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+
+  --color-gray: #ee9972;
+  --color-rose: #edefee;
+  --color-dark: #fbdabb;
+  --color-dark-1: #333333;
+}
+
+/* custom css */
+.full-bleed {
+  box-shadow: 0 0 0 100vmax rgba(243, 244, 246, 1);
+  box-shadow: 0 0 0 100vmax #edefee;
+  clip-path: inset(0 -100vmax);
+}
+.inverse {
+  background: rgba(243, 244, 246, 1);
+  background: #edefee;
+  color: black;
+}
+
+@layer components {
+  .custom-container {
+    @apply mx-auto max-w-[95%];
+  }
+  .none {
+    @apply flex-none;
+  }
+
+  /* nav__link hover pseudo el for home-page */
+  .nav__link {
+    @apply text-white relative;
+  }
+
+  .nav__link::after {
+    @apply content-[''] bg-slate-50 absolute bottom-0 left-1/2 -translate-x-1/2 top-[149%] w-[0%] h-[2px] transition-['width'] duration-[0.3s] ease-out;
+  }
+  .nav__link:hover::after {
+    @apply w-1/2;
+  }
+  /* nav__link hover pseudo el for shopping-page */
+  .nav__link--shop {
+    @apply text-primary-darkGray relative;
+  }
+  /* .nav__link {
+    @apply text-primary-black relative;
+  } */
+
+  .nav__link--shop::after {
+    @apply content-[''] bg-primary-darkGray absolute bottom-0 left-1/2 -translate-x-1/2 top-[149%] w-[0%] h-[2px] transition-['width'] duration-[0.3s] ease-out;
+  }
+  .nav__link--shop:hover::after {
+    @apply w-1/2;
+  }
+
+  /* nav__link hover pseudo el for shopping-page heading */
+  .heading-collection {
+    @apply relative  w-max;
+  }
+
+  .heading-collection::after {
+    @apply content-[''] bg-primary-black absolute bottom-0 left-1/2 -translate-x-1/2 top-[135%] w-[70%] h-[2px] transition-['width'] duration-[0.3s] ease-out;
+  }
+  /* .heading:hover::after {
+    @apply w-1/2;
+  } */
+
+  /* shops categores section link */
+  /* .category__link {
+    @apply;
+  } */
+  .category__figcaption {
+    @apply absolute z-20 bottom-3 left-3 max-w-[12ch] text-primary-white text-xl font-[300] leading-[1.2];
+  }
+
+  /* product name figcaption  */
+  .product__figcaption {
+    @apply absolute z-20 bottom-1 left-3 max-w-[18ch] text-primary-white text-sm font-[300];
+  }
+
+  /* cart quantity */
+  .cart-qty {
+    @apply absolute left-5 bg-primary-black m-0 text-primary-white w-6 h-6 rounded-full flex justify-center items-center text-base;
+  }
+}
