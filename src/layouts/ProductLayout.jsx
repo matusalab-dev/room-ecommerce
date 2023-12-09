@@ -3,7 +3,7 @@ import { useStateContext } from "../Contexts/StateContext";
 import { ShopsNavbar } from "../components/ShopsNavbar";
 import { CustomContainer } from "./Custom-container";
 import Cart from "../components/Cart";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocalStorage } from "../Hooks/useLocalStorage";
 
 // export const useLocalStorage = (key, initialValue = null) => {
@@ -33,19 +33,13 @@ const ProductLayout = () => {
   const filteredProduct = productInfo.filter(
     (product) => product.id === productid
   );
-  // const [productDetailStore, setProductDetailStore] = useLocalStorage(
-  //   "productsDetail",
-  //   filteredProduct[0]
-  // );
-
-  // setProductDetailStore(filteredProduct);
-  // console.log("productdetail in store", productDetailStore);
 
   return (
     <CustomContainer className={` max-w-[95%] flex-col mt-10`}>
       <ShopsNavbar />
       <Cart />
       <Outlet context={filteredProduct[0]} />
+      {/* <Outlet context={productState.productInfo} /> */}
     </CustomContainer>
   );
 };

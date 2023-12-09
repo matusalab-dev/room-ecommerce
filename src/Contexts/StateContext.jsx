@@ -9,6 +9,8 @@ export const StateProvider = ({ children }) => {
 
   // shopping Products details
   const productsDetail = shoppingProduct();
+  // products detail in local storage
+
   // Cart state
   const [productInfo, setProductInfo] = useState(productsDetail);
   const [showCart, setShowCart] = useState(false);
@@ -23,17 +25,10 @@ export const StateProvider = ({ children }) => {
   // accept two arguments, the product instance we want to add to the cart and the quantity of the product.
   function handleAddToCart(productToAdd, quantity) {
     // check if the product is already exist in the cart
-    console.log("Adding product to cart with cartItems array", cartItems);
     const existingCartItem = cartItems.find(
       (cartItem) => cartItem.id === productToAdd.id
     );
 
-    console.log(
-      "existing product in the cart",
-      existingCartItem,
-      "cartStatus:",
-      cartStatus
-    );
     // if it is in the cart
     if (existingCartItem) {
       // update productInfo after updating the existing cartItems in-cart state into true

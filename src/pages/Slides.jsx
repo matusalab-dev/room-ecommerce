@@ -17,7 +17,7 @@ const Slides = () => {
         <p className="description product__description">
           {slidesDetail[index].description}
         </p>
-        <NavLink to="shopping" className="cta-primary">
+        <NavLink to="/shopping" className="cta-primary">
           Shop now
           <span>
             <img

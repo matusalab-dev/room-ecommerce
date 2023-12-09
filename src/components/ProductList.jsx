@@ -118,7 +118,7 @@ const ProductList = () => {
             // Apply React.memo to the entire component function
             const MemoizedNavLink = React.memo(() => (
               <NavLink
-                to={`/shop/${productDetail.id}`}
+                to={`./${productDetail.id}`}
                 key={productDetail.id}
                 className="relative group"
                 // onMouseEnter={() =>

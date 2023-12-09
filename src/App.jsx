@@ -12,18 +12,24 @@ export default function App() {
     <>
       <Routes>
         <Route path="/" element={<HomeLayout />}></Route>
+
         {/* shops Route*/}
         <Route path="shopping" element={<ShopsLayout />}>
           <Route index element={<Shops />} />
         </Route>
+
         {/* product details */}
-        <Route path="shop/:productid" element={<ProductLayout />}>
+        <Route path="shopping/:productid" element={<ProductLayout />}>
           <Route index element={<ProductDetail />}></Route>
         </Route>
         {/* product categories*/}
-        <Route path="product/:category" element={<ShopsLayout />}>
+        <Route
+          path="shopping/product-category/:category"
+          element={<ShopsLayout />}
+        >
           <Route index element={<Category />}></Route>
         </Route>
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

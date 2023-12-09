@@ -24,7 +24,7 @@ const ProductCategory = () => {
             return (
               <NavLink
                 key={data.url}
-                to={`/product/${data.url}`}
+                to={`./product-category/${data.url}`}
                 className={data.className}
               >
                 <figure className="w-full h-full ">

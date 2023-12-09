@@ -36,7 +36,7 @@ const ProductDetail = () => {
         <FaLongArrowAltLeft size="2em" className=" cursor-pointer self-top" />
       </NavLink>
 
-      {console.log("in cart", productsDetail.inCart)}
+      {/* {console.log("in cart", productsDetail.inCart)} */}
       <div className=" flex justify-between gap-12">
         {" "}
         <div className=" flex flex-col max-w-md shrink-0">

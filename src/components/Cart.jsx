@@ -31,10 +31,6 @@ const CartWrapper = ({
           <NavLinkList
             title="go back to shopping"
             link="../shopping"
-            // style={({ isActive }) => {
-            //   return isActive ? { cartStyles } : { cartStyles };
-            // }}
-            // style={cartStyles}
             onClick={handleShowCart}
             className="inline-block px-3 py-2 text-primary-white self-center items-start bg-primary-black"
           ></NavLinkList>
@@ -141,7 +137,7 @@ const Cart = () => {
           handleCartQuantity={handleCartQuantity}
         />
       </div>
-      {totalPrice > 0 && (
+      {totalPrice >= 1 && (
         <>
           {" "}
           <div className="flex border-[0.8px]  border-primary-black border-dashed"></div>
@@ -151,8 +147,8 @@ const Cart = () => {
             </p>
             <NavLink
               title="buy now"
-              link="./NotFound"
-              to="./NotFound"
+              // link="/NotFound"
+              to="/notfound"
               className=" px-6 py-3 rounded-sm  hover:shadow-sm hover:shadow-primary-darkGray text-center text-2xl justify-items-center mx-auto self-center col-start-2 col-end-3 row-[1/3]   text-primary-white bg-primary-black font-thin"
             >
               buy now

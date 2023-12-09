@@ -1,5 +1,4 @@
-import { useOutletContext, useParams } from "react-router-dom";
-import { useStateContext } from "../Contexts/StateContext";
+import { useParams } from "react-router-dom";
 import { CategoriesDataProvider } from "../data/CategoriesData";
 
 const Category = () => {
