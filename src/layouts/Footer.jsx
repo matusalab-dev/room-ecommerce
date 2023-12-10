@@ -32,7 +32,7 @@ const Footer = ({ className }) => {
           className="about__image--inner about__inner-image--2"
         />
       </div>
-      <div className="attribution col-[1/span-full] w-full  ">
+      {/* <div className="attribution col-[1/span-full] w-full  ">
         Challenge by
         <a
           href="https://www.frontendmentor.io?ref=challenge"
@@ -42,7 +42,7 @@ const Footer = ({ className }) => {
           Frontend Mentor
         </a>
         . Coded by <a href="#">Matusalab</a>.
-      </div>
+      </div> */}
     </footer>
   );
 };
