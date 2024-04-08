@@ -1,5 +1,5 @@
 import { AiOutlineSearch } from "react-icons/ai";
-import { InputComponent } from "../InputComponent";
+import { InputComponent } from "../ui/InputComponent";
 
 const SearchInput = ({ searchItem, handleSearch, toggle = null }) => {
   return (

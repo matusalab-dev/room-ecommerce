@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-import LogoImage from "../assets/images/Logo";
+import LogoImage from "../../assets/images/Logo";
 
 const Logo = ({ styleLink, currentColor }) => {
   return (

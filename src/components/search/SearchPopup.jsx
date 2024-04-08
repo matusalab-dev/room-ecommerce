@@ -1,7 +1,7 @@
 import { twMerge } from "tailwind-merge";
 
 import { useStateContext } from "../../contexts/StateContext";
-import { Overlay } from "../Overlay";
+import { Overlay } from "../ui/Overlay";
 
 // import IconClose from "../../assets/icons/IconClose";
 import SearchResultCount from "./SearchResultCount";

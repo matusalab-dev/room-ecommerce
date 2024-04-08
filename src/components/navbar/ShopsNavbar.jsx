@@ -10,7 +10,7 @@ import CartCountBadge from "../cart/CartCountBadge";
 import SearchInput from "../search/SearchInput";
 import SearchPopup from "../search/SearchPopup";
 
-import Logo from "../Logo";
+import Logo from "../ui/Logo";
 import IconClose from "../../assets/icons/IconClose";
 import IconHamburger from "../../assets/icons/IconHamburger";
 
