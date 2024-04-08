@@ -1,37 +1,32 @@
 import { Outlet, useParams } from "react-router-dom";
-import { ShopsNavbar } from "../components/ShopsNavbar";
-import Cart from "../components/Cart";
-import Footer from "./Footer";
-import { CustomContainer } from "./Custom-container";
-import { useStateContext } from "../Contexts/StateContext";
+
+import { ShopsNavbar } from "../components/navbar/ShopsNavbar";
+import Cart from "../components/cart/Cart";
+import { useStateContext } from "../contexts/StateContext";
+import SearchResultCount from "../components/search/SearchResultCount";
 
 export const ShopsLayout = () => {
   const { category } = useParams();
-  // console.log(category);
+
   const { showCart, foundItem, searchItem, productInfo } = useStateContext();
 
-  // console.log(productInfo);
-
-  // const filteredCategory = productInfo.filter(
-  //   (productCategory) => productCategory.url === category
-  // );
-
-  // console.log(filteredCategory);
+  const filteredCategory = productInfo.filter((productCategory) => {
+    productCategory.url === category;
+  });
 
   return (
-    // set fixed positioning for the container
+    // set relative positioning for the container if cart is Open
     <div className={`${showCart ? "relative" : " "}`}>
       <div className={`custom-container  bg-primary-white pt-10 `}>
         <ShopsNavbar />
-        {searchItem !== "" && (
-          <p className="text-sm text-primary-veryDarkGray text-left ">
-            {`search results found: ${foundItem.length}`}
-          </p>
-        )}
+        <SearchResultCount
+          styleResult="lg:hidden text-primary-veryDarkGray mt-8"
+          searchItem={searchItem}
+          foundItem={foundItem}
+        />
         <Cart />
-        {/* <div className="overlay--inner "></div> */}
-        {/* <Outlet context={filteredCategory[0]} /> */}
-        <Outlet />
+
+        <Outlet context={filteredCategory[0]} />
       </div>
     </div>
   );

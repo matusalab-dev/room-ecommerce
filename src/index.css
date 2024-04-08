@@ -2,32 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
-
-  --color-gray: #ee9972;
-  --color-rose: #edefee;
-  --color-dark: #fbdabb;
-  --color-dark-1: #333333;
-}
-
-/* custom css */
-.full-bleed {
-  box-shadow: 0 0 0 100vmax rgba(243, 244, 246, 1);
-  box-shadow: 0 0 0 100vmax #edefee;
-  clip-path: inset(0 -100vmax);
-}
-.inverse {
-  background: rgba(243, 244, 246, 1);
-  background: #edefee;
-  color: black;
-}
-
 @layer components {
   .custom-container {
-    @apply mx-auto max-w-[95%];
+    @apply mx-auto max-w-[95%] sm:max-w-[90%];
   }
+
   .none {
     @apply flex-none;
   }
@@ -47,6 +26,7 @@
   .nav__link--shop {
     @apply text-primary-darkGray relative;
   }
+
   /* .nav__link {
     @apply text-primary-black relative;
   } */
@@ -64,18 +44,11 @@
   }
 
   .heading-collection::after {
-    @apply content-[''] bg-primary-black absolute bottom-0 left-1/2 -translate-x-1/2 top-[135%] w-[70%] h-[2px] transition-['width'] duration-[0.3s] ease-out;
+    @apply content-[''] bg-primary-black absolute bottom-0 left-1/2  top-[120%] xs:top-[112%] -translate-x-1/2 w-[70%] h-[2px] xs:h-[1px] sm:h-[1.5px] transition-['width'] duration-[0.3s] ease-out;
   }
-  /* .heading:hover::after {
-    @apply w-1/2;
-  } */
 
-  /* shops categores section link */
-  /* .category__link {
-    @apply;
-  } */
   .category__figcaption {
-    @apply absolute z-20 bottom-3 left-3 max-w-[12ch] text-primary-white text-xl font-[300] leading-[1.2];
+    @apply absolute z-20 bottom-3 left-3 max-w-[12ch] text-primary-white text-xl sm:text-lg font-[300] sm:font-[100] leading-[1.2] sm:leading-none;
   }
 
   /* product name figcaption  */

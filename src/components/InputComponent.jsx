@@ -6,7 +6,7 @@ export const InputComponent = ({
   label,
   touched,
   errors,
-  className,
+  inputClass,
   inputWrapper,
   labelClass,
   labelIconClass,
@@ -20,7 +20,7 @@ export const InputComponent = ({
 }) => {
   const InputMerged = twMerge(
     " text-[1rem] w-full text-primary-200 rounded-[0.3rem] p-3 mt-1 font-semibold placeholder:opacity-60 focus:border-white  active:border-white border-6  focus:outline-none focus:outline-white focus:outline-offset-0",
-    className
+    inputClass
   );
 
   const LabelIconMerged = twMerge(
@@ -42,9 +42,7 @@ export const InputComponent = ({
 
       <input
         type={type}
-        className={` ${
-          touched && errors ? "border-red-500 " : ""
-        } ${InputMerged} `}
+        className={InputMerged}
         name={name}
         placeholder={placeholder}
         id={id}

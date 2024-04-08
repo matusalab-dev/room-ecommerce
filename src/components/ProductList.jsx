@@ -1,170 +1,141 @@
-import { FaEye, FaHeart, FaRegHeart, FaShoppingBasket } from "react-icons/fa";
-import { useStateContext } from "../Contexts/StateContext";
+import { memo, useState } from "react";
 import { NavLink } from "react-router-dom";
-import CurrencyFormatter from "../utils/CurrencyFormatter";
-import React, { useState, useMemo } from "react";
-import { CustomContainer } from "../layouts/Custom-container";
-import Footer from "../layouts/Footer";
+import { FaRegHeart, FaShoppingBasket } from "react-icons/fa";
+import { twMerge } from "tailwind-merge";
 
-const ProductList = () => {
-  const { foundItem, handleAddToCart, handleRemoveFromCart, cartItems, qty } =
-    useStateContext();
-  // const [currentProduct, setCurrentProduct] = useState(null);
+import { useStateContext } from "../contexts/StateContext";
+import CurrencyFormatter from "../utils/currencyFormatter";
+
+import Footer from "../layouts/Footer";
+import { GridLayout } from "../layouts/GridLayout";
+
+export const ProductItem = ({ searchItem, route }) => {
+  const { handleAddToCart, qty } = useStateContext();
   const [hoveredItemId, setHoveredItemId] = useState(null);
 
   function handleMouseEnter(productId) {
     setHoveredItemId(productId);
-    // handleShowReact();
   }
   function handleMouseLeave() {
     setHoveredItemId(null);
-    // handleShowReact();
   }
 
   const reactionStatusTemplate = (currentProduct, qty) => {
-    // check about useMemo react Hooks
-    // useMemo(() => {
-
-    // console.log("hoveredItemId:", hoveredItemId);
-    // // const isHovered = hoveredItemId === productToAdd.id;
-    // console.log("react-status product:", foundItem);
-
-    // const currentProduct = foundItem.filter((item) => {
-    //   return item.id === hoveredItemId;
-    // });
-    // console.log("filtered currentProduct: ", currentProduct);
-
-    //replace w-28 if you have more than one buttons
+    // replace width with w-28 if you have more than one buttons
     return (
-      // <div className="absolute -top-28 flex max-w-28 px-4 py-2 mx-auto justify-between bg-primary-white">
-      <button
-        role="button"
-        disabled={currentProduct.inCart}
-        title={`${
-          currentProduct.inCart
-            ? "product is already in the cart"
-            : "add to cart"
-        }`}
-        className="absolute -top-28 flex max-w-28 px-4 py-2 mx-auto justify-between bg-primary-white"
-        onClick={() => handleAddToCart(currentProduct, qty)}
+      <div
+        className="w-20 absolute -top-[170%] flex px-4 py-2 mx-auto justify-between bg-primary-white
+      "
       >
-        <FaShoppingBasket
-          fontWeight="100"
-          className="font-thin text-base text-primary-darkGray"
-        />
-      </button>
-      /* <button
-        role="button"
-        // title="add to cart"
-        // className="w-6 h-8 items-center self-end flex justify-center text-gray-900 font-semibold bg-gray-500 px-4 py-1 text-lg text-center translate-y-8 z-20"
-        onClick={() => handleAddToCart(productToAdd, qty)}
-      >
-        <FaEye
-          fontWeight="100"
-          className="font-thin text-base text-primary-darkGray"
-        />
-      </button> */
-      /* <button
+        <button
           role="button"
-          // title="add to cart"
-          // className="w-6 h-8 items-center self-end flex justify-center text-gray-900 font-semibold bg-gray-500 px-4 py-1 text-lg text-center translate-y-8 z-20"
-          onClick={() => console.log("loved it!")}
+          disabled={currentProduct.inCart}
+          title={`${
+            currentProduct.inCart
+              ? "product is already in the cart"
+              : "add to cart"
+          }`}
+          onClick={() => handleAddToCart(currentProduct, qty)}
+        >
+          <FaShoppingBasket
+            fontWeight="100"
+            className="font-thin text-base text-primary-darkGray"
+          />
+        </button>
+
+        <button
+          role="button"
+          // disabled={currentProduct.inCart}
+          title="add to wish list"
+          onClick={() => console.log("I wish to buy this", currentProduct.name)}
         >
           <FaRegHeart
             fontWeight="100"
             className="font-thin text-base text-primary-darkGray"
           />
-        </button> */
-      /* <button
+        </button>
+
+        {/* <button
           role="button"
-          // title="add to cart"
-          // className="w-6 h-8 items-center self-end flex justify-center text-gray-900 font-semibold bg-gray-500 px-4 py-1 text-lg text-center translate-y-8 z-20"
-          onClick={() => handleRemoveFromCart(cartItems)}
+          title="add to wish list"
+          className="w-8 h-8 items-center self-end flex justify-center text-primary-darkGray font-semibold bg-primary-white px-4 py-1 text-lg text-center translate-y-8 z-20"
+          onClick={() => console.log("loved it!")}
         >
-          <FaEye
+          <FaRegHeart
             fontWeight="100"
-            className="font-thin text-base text-primary-darkGray"
+            className="font-thin text-base text-primary-darkGray bg-primary-white"
           />
-        </button> */
-      // </div>
+        </button> */}
+      </div>
     );
   };
-  // }, [foundItem]);
-
-  // const handleReactionStatus = (eventType, productid) => {
-  //   if (eventType === "onMouseEnter") {
-  //     setHoveredItemId(productid);
-  //   } else if (eventType === "onMouseLeave") {
-  //     setHoveredItemId(null);
-  //   }
-  // };
 
   return (
+    <GridLayout className="grid grid-cols-8 lg:grid-cols-6 justify-items-center lg:justify-center">
+      {searchItem.map((productDetail) => {
+        const isHovered = hoveredItemId === productDetail.id;
+        console.log("isHovered:", isHovered);
+
+        // memoized hovered navLinks
+        const MemoizedNavLink = memo(() => (
+          <NavLink
+            to={`./${productDetail.id}`}
+            key={productDetail.id}
+            className="relative group "
+            onMouseEnter={() => handleMouseEnter(productDetail.id)}
+            onMouseLeave={() => handleMouseLeave()}
+          >
+            <figure className="w-full h-full overflow-hidden bg-gray-300">
+              <img
+                src={productDetail.imageUrl}
+                alt={productDetail.name}
+                // loading="lazy"
+                className={`z-10 object-cover block w-full max-w-full h-56 transition-all ease-out ${
+                  isHovered ? "group-hover:scale-105" : ""
+                }`}
+              />
+            </figure>
+          </NavLink>
+        ));
+
+        return (
+          <div
+            key={productDetail.id}
+            className="h-20 flex flex-col max-w-xs sm:col-span-8 md:col-span-3 lg:col-span-2  col-span-2 "
+          >
+            <MemoizedNavLink />
+
+            <div className="relative z-10 bg-primary-white space-y-1  py-4 flex  flex-col items-center">
+              <span className="font-semibold text-primary-darkGray">
+                ${CurrencyFormatter("en-US", productDetail.price)}
+              </span>
+              <figcaption className="text-center font-thin text-sm capitalize  max-w-[20ch]">
+                {productDetail.name}
+              </figcaption>
+              {/* reaction status of the product */}
+              {isHovered && reactionStatusTemplate(productDetail, qty)}
+            </div>
+          </div>
+        );
+      })}
+    </GridLayout>
+  );
+};
+
+const ProductList = ({ headingTitle, headingClass, children }) => {
+  const productListHeadingStyle = twMerge(
+    "heading-collection block  mx-auto text-center text-5xl sm:text-4xl  font-serif font-semibold capitalize mt-10 mb-16 ",
+    headingClass
+  );
+  return (
     <>
-      <main className="grid full-bleed inverse mt-20  pt-6 pb-24">
-        <h1 className="heading-collection inline-block  mx-auto text-center text-5xl font-serif font-semibold mt-12 mb-16 ">
-          Our Collection
-        </h1>
-        <div
-          className={`${
-            foundItem &&
-            "grid grid-cols-filteredCol justify-start justify-items-start "
-          } grid gap-x-6 gap-y-24 grid-cols-productCol grid-rows-productRow grid-flow-row-dense product__auto-row`}
-        >
-          {foundItem.map((productDetail) => {
-            const isHovered = hoveredItemId === productDetail.id;
-            console.log("isHovered:", isHovered);
-
-            // Apply React.memo to the entire component function
-            const MemoizedNavLink = React.memo(() => (
-              <NavLink
-                to={`./${productDetail.id}`}
-                key={productDetail.id}
-                className="relative group"
-                // onMouseEnter={() =>
-                //   handleReactionStatus("onMouseEnter", productDetail.id)
-                // }
-                // onMouseLeave={() =>
-                //   handleReactionStatus("onMouseLeave", productDetail.id)
-                // }
-
-                onMouseEnter={() => handleMouseEnter(productDetail.id)}
-                onMouseLeave={handleMouseLeave}
-              >
-                <figure className="w-full h-full overflow-hidden ">
-                  <img
-                    src={productDetail.imageUrl}
-                    alt="armchair & table furniture"
-                    className={`z-10 object-cover block w-full max-w-full h-full transition-all ease-out ${
-                      isHovered ? "group-hover:scale-105" : ""
-                    }`}
-                  />
-                </figure>
-              </NavLink>
-            ));
-
-            return (
-              <div key={productDetail.id} className=" flex flex-col ">
-                <MemoizedNavLink />
-
-                <div className="relative z-10 bg-primary-white space-y-1  py-4 flex  flex-col items-center">
-                  <span className="font-semibold text-primary-darkGray">
-                    ${CurrencyFormatter("en-US", productDetail.price)}
-                  </span>
-                  <figcaption className="text-center font-thin text-sm capitalize  max-w-[20ch]">
-                    {productDetail.name}
-                  </figcaption>
-                  {/* status of the product */}
-                  {isHovered && reactionStatusTemplate(productDetail, qty)}
-                </div>
-              </div>
-            );
-          })}
-        </div>
+      <main className="full-bleed inverse mt-16  pt-6 pb-24">
+        <h1 className={productListHeadingStyle}>{headingTitle}</h1>
+        {children}
       </main>
-      <CustomContainer className="absolute  right-0 left-0 mx-0 max-w-full">
-        <Footer className="w-full  mb-0" />
-      </CustomContainer>
+      <div className="absolute  right-0 left-0 mx-0 max-w-full">
+        <Footer className="sm:max-w-full" />
+      </div>
     </>
   );
 };

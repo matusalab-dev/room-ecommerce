@@ -22,35 +22,24 @@ module.exports = {
         secondary: ["Karla, sans-serif"],
       },
       gridTemplateColumns: {
-        categoryCol: "repeat(8,minmax(70px, 1fr))",
+        categoryCol: "repeat(8,minmax(4.375rem, 1fr))",
         filteredCol: "repeat(8,22.63em)",
         productCol: "repeat(auto-fit,minmax(22.63em, 1fr))",
       },
       gridTemplateRows: {
         categoryRow: "repeat(4,minmax(30px, 60px))",
-        // productRow: "repeat(auto-fit,minmax(280px, 280px))",
         productRow: "repeat(auto-fit,minmax(220px, 220px))",
       },
       gridAutoRows: {
         productAutoRow: "280px",
       },
-      borderColor: "#495E57",
     },
     screens: {
-      "2xl": { max: "1535px" },
-      // => @media (max-width: 1535px) { ... }
-
       xl: { max: "1279px" },
-      // => @media (max-width: 1279px) { ... }
-
       lg: { max: "1023px" },
-      // => @media (max-width: 1023px) { ... }
-
       md: { max: "767px" },
-      // => @media (max-width: 767px) { ... }
-
       sm: { max: "639px" },
-      // => @media (max-width: 639px) { ... }
+      xs: { max: "455px" },
     },
   },
 

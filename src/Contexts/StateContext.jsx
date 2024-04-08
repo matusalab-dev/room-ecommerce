@@ -1,36 +1,39 @@
-import React, { createContext, useContext, useState } from "react";
-import CarousalList from "../data/CarousalList";
+import { createContext, useContext, useEffect, useState } from "react";
+
+import CarousalList from "../data/carousalList";
 import shoppingProduct from "../data/shoppingProduct";
 
+// create context
 const StateContext = createContext([]);
 
 export const StateProvider = ({ children }) => {
-  const [index, setIndex] = useState(0);
-
+  const [slideIndex, setSlideIndex] = useState(0);
   // shopping Products details
   const productsDetail = shoppingProduct();
-  // products detail in local storage
 
-  // Cart state
+  // products state
   const [productInfo, setProductInfo] = useState(productsDetail);
   const [showCart, setShowCart] = useState(false);
-  const [showReact, setShowReact] = useState(false);
-  const [cartStatus, setCartStatus] = useState(false);
+  const [cartStatus, setCartStatus] = useState("");
   const [qty, setQty] = useState(1);
   const [cartItems, setCartItems] = useState([]);
   const [totalQty, setTotalQty] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
 
-  // a function get called after clicking `addtocart` button
-  // accept two arguments, the product instance we want to add to the cart and the quantity of the product.
+  const handleShowCart = () => {
+    setShowCart((prevShown) => !prevShown);
+  };
+
+  /* a function get called after clicking `addtocart` button which accept two arguments,
+   the product instance we want to add to the cart `productToAdd` and the quantity of the product `quantity`*/
   function handleAddToCart(productToAdd, quantity) {
-    // check if the product is already exist in the cart
-    const existingCartItem = cartItems.find(
+    // check if the product exist in the cart
+    const doesExist = cartItems.find(
       (cartItem) => cartItem.id === productToAdd.id
     );
 
-    // if it is in the cart
-    if (existingCartItem) {
+    // if it exist in the cart
+    if (doesExist) {
       // update productInfo after updating the existing cartItems in-cart state into true
       setProductInfo((prevProductInfo) => {
         const updatedCartItems = prevProductInfo.map((productInfo) =>
@@ -42,8 +45,8 @@ export const StateProvider = ({ children }) => {
         return updatedCartItems;
       });
 
-      // cart status update
-      setCartStatus("product is added to cart!");
+      // update cart status
+      setCartStatus("product is added to a cart!");
 
       setShowCart(true);
       return;
@@ -54,6 +57,7 @@ export const StateProvider = ({ children }) => {
       ...cartItems,
       { ...productToAdd, quantity: quantity, inCart: true },
     ]);
+
     // then update price and quantity accordingly
     setTotalQty((prevTotalQty) => prevTotalQty + quantity);
     setTotalPrice(
@@ -61,7 +65,7 @@ export const StateProvider = ({ children }) => {
     );
   }
 
-  //  function to remove a product from the cart and update  state accordingly
+  // function to remove a product from the cart and update state accordingly
   function handleRemoveFromCart(cartProduct) {
     // find that cart items with product-id to be removed.
     const productFound = cartItems.find(
@@ -70,6 +74,7 @@ export const StateProvider = ({ children }) => {
 
     // return all cart items except those with id that we want to get removed
     const removedItem = cartItems.filter((item) => item.id !== cartProduct.id);
+    // update the cartItems
     setCartItems(removedItem);
 
     setTotalQty((prevTotalQty) => prevTotalQty - productFound.quantity);
@@ -88,21 +93,12 @@ export const StateProvider = ({ children }) => {
 
       return updatedCartItems;
     });
-    // splice is a mutating function, it violates the rule of react functional state
-    // cartItems.splice(cartItems.indexOf(productFound), 1);
   }
 
-  // handle cart quantity of individual existing products added in the cart
+  // handle cart quantity of individual existing cartItems
   function handleCartQuantity(id, type) {
-    // find the product with the specified id
-    const foundCartItem = cartItems.find((item) => item.id === id);
-
-    // filter out products that are new to the cart
-    const newCartItem = cartItems.filter((item) => item.id !== id);
-
-    // items new to the cart will get added as a new to the cart,
-    // quantities of existing items will get updated accordingly.
     if (type === "inc") {
+      // quantities and pricing of existing items will get updated accordingly.
       setCartItems((prevCartItems) => {
         const updatedCartItems = prevCartItems.map((item) =>
           item.id === id ? { ...item, quantity: item.quantity + 1 } : item
@@ -121,7 +117,8 @@ export const StateProvider = ({ children }) => {
         setTotalQty(totalQuantity);
         setTotalPrice(totalPrice);
 
-        return updatedCartItems; // Return the updated state
+        // Return the updated cart items
+        return updatedCartItems;
       });
     } else if (type === "dec") {
       setCartItems((prevCartItems) => {
@@ -136,6 +133,7 @@ export const StateProvider = ({ children }) => {
           (acc, item) => acc + item.quantity,
           0
         );
+
         const totalPrice = updatedCartItems.reduce(
           (acc, item) => acc + item.quantity * item.price,
           0
@@ -144,19 +142,13 @@ export const StateProvider = ({ children }) => {
         setTotalQty(totalQuantity);
         setTotalPrice(totalPrice);
 
-        return updatedCartItems; // Return the updated state
+        // Return the updated cart items
+        return updatedCartItems;
       });
     }
   }
 
-  // function that handles the hiding and showing of cart UI
-  function handleShowCart() {
-    setShowCart((prevShow) => !prevShow);
-  }
-  function handleShowReact() {
-    setShowReact((prevShow) => !prevShow);
-  }
-
+  // handle the quantity of items
   function handleInc() {
     setQty((prevQty) => prevQty + 1);
   }
@@ -170,42 +162,39 @@ export const StateProvider = ({ children }) => {
     });
   }
 
-  // searching for products
+  // handle searching for products
   const [searchItem, setSearchItem] = useState("");
   const [foundItem, setFoundItem] = useState(productInfo);
 
   function handleSearch(e) {
     const searchValue = e.target.value;
-    setSearchItem(() => searchValue.toLowerCase());
+    // useEffect(() => {
+    setSearchItem(searchValue.toLowerCase());
 
-    console.log("searchItem:", searchItem.split(""));
-    // console.log("Product name:", productInfo[0].name);
-    const productFound = productInfo.filter(
-      (product) =>
+    const productFound = productInfo.filter((product) => {
+      console.log(product);
+      return (
         searchItem !== "" &&
-        product.name.toLowerCase().trim().includes(searchItem)
-    );
-
-    console.log(productFound);
+        product.name.trim().toLowerCase().includes(searchItem)
+      );
+    });
 
     setFoundItem(productFound);
-    console.log("search results found : " + productFound.length);
+    // }, [searchItem, foundItem]);
   }
-  console.log("foundItem:", foundItem);
-  console.log("search Term:", searchItem);
 
-  // slides state start
   // home-page slides context
+  // custom slides code
   const slidesDetail = CarousalList();
-  // console.log(productsDetails[0]);
+
   // handle the next click
   const handleNext = () => {
-    if (index < slidesDetail.length - 1) {
-      setIndex((prevIndex) => prevIndex + 1);
+    if (slideIndex < slidesDetail.length - 1) {
+      setSlideIndex((prevIndex) => prevIndex + 1);
     }
 
-    if (index === slidesDetail.length - 1) {
-      setIndex((prevIndex) => prevIndex - 2);
+    if (slideIndex === slidesDetail.length - 1) {
+      setSlideIndex((prevIndex) => prevIndex - 2);
     }
 
     return;
@@ -213,52 +202,46 @@ export const StateProvider = ({ children }) => {
 
   // handle previous click
   const handlePrev = () => {
-    if (index > 0 && index < slidesDetail.length) {
-      setIndex((prevIndex) => prevIndex - 1);
+    if (slideIndex > 0 && slideIndex < slidesDetail.length) {
+      setSlideIndex((prevIndex) => prevIndex - 1);
     }
 
-    if (index === 0) {
-      setIndex((prevIndex) => prevIndex + 2);
+    if (slideIndex === 0) {
+      setSlideIndex((prevIndex) => prevIndex + 2);
     }
 
     return;
   };
   // slides state end
 
+  const stateValue = {
+    slideIndex,
+    slidesDetail,
+    handleNext,
+    handlePrev,
+    productInfo,
+    setProductInfo,
+    handleDec,
+    handleInc,
+    qty,
+    totalQty,
+    totalPrice,
+    setTotalPrice,
+    cartItems,
+    handleAddToCart,
+    handleRemoveFromCart,
+    handleCartQuantity,
+    handleSearch,
+    searchItem,
+    setSearchItem,
+    foundItem,
+    cartStatus,
+    showCart,
+    handleShowCart,
+  };
+
   return (
-    <StateContext.Provider
-      value={{
-        index,
-        slidesDetail,
-        handleNext,
-        handlePrev,
-        productInfo,
-        setProductInfo,
-        handleDec,
-        handleInc,
-        qty,
-        totalQty,
-        totalPrice,
-        setTotalPrice,
-        showCart,
-        setShowCart,
-        cartItems,
-        cartStatus,
-        handleShowCart,
-        handleAddToCart,
-        handleRemoveFromCart,
-        handleCartQuantity,
-        handleSearch,
-        searchItem,
-        setSearchItem,
-        foundItem,
-        handleShowReact,
-        showReact,
-        setShowReact,
-      }}
-    >
-      {children}
-    </StateContext.Provider>
+    <StateContext.Provider value={stateValue}>{children}</StateContext.Provider>
   );
 };
 

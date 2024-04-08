@@ -1,8 +1,11 @@
 import Footer from "./Footer";
-import Slides from "../pages/Slides";
 import Header from "./Header";
+import Slides from "../layouts/Slides";
+import useToggle from "../Hooks/useToggle";
 
 export const HomeLayout = () => {
+  const { isToggled, handleIsToggled } = useToggle();
+
   return (
     <>
       {/* homepage  */}
@@ -16,7 +19,6 @@ export const HomeLayout = () => {
         {/* <!-- footer section --> */}
         <Footer />
       </main>
-      {/* <Outlet /> */}
     </>
   );
 };

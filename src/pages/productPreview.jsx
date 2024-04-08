@@ -1,22 +1,27 @@
-import { useState } from "react";
-import { NavLink, useOutletContext } from "react-router-dom";
+import React, { useState } from "react";
+import { NavLink, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 import { useStateContext } from "../contexts/StateContext";
-import CurrencyFormatter from "../utils/currencyFormatter";
 import { CustomContainer } from "../layouts/CustomContainer";
+import CurrencyFormatter from "../utils/currencyFormatter";
 
 import IconArrow from "../assets/icons/IconArrow";
 
-const ProductDetail = () => {
-  const { handleInc, handleDec, qty, handleAddToCart } = useStateContext();
+const ProductPreview = () => {
+  const { handleInc, handleDec, qty, handleAddToCart, productInfo } =
+    useStateContext();
 
-  const productsDetail = useOutletContext();
+  const { productid } = useParams();
 
   const [index, setIndex] = useState(0);
 
-  // console.log("products in products-detail ", productsDetail);
+  const filteredCategory = productInfo.filter((productId) => {
+    return productId.id === productid;
+  });
 
+  // console.log("products in products-preview ", filteredCategory);
+  const productsDetail = filteredCategory[0];
   {
     /* our product collections section */
   }
@@ -29,11 +34,9 @@ const ProductDetail = () => {
         <IconArrow className="rotate-180" />
       </NavLink>
 
-      {/* {console.log("in cart", productsDetail.inCart)} */}
       <div className=" flex justify-between gap-12 lg:flex-col md:pb-8">
-        {" "}
         <div className=" flex flex-col  items-center xl:shrink-0">
-          <h1 className="mx-auto text-center capitalize text-2xl font-serif font-semibold sm:font-medium  mt-6 mb-6 ">
+          <h1 className="mx-auto text-center capitalize text-2xl font-serif font-semibold sm:font-medium mt-6 mb-6 ">
             {productsDetail.name}
           </h1>
           <div className="relative basis-full max-w-md sm:max-w-sm xs:max-w-[19rem] ">
@@ -44,7 +47,6 @@ const ProductDetail = () => {
                     ? productsDetail.imageUrl
                     : productsDetail.imageVariants[index]
                 }
-                // src={productsDetail.imageUrl}
                 alt={productsDetail.name}
                 className="rounded-sm z-10 object-cover block w-full max-w-full h-72"
               />
@@ -57,7 +59,7 @@ const ProductDetail = () => {
                       alt={productsDetail.name}
                       onMouseEnter={() => setIndex(i)}
                       onMouseLeave={() => setIndex(0)}
-                      className="w-[5.6rem] h-20 xs:w-[4.5rem] xs:h-[4.5rem] rounded-sm z-10 object-cover block  "
+                      className="w-[5.6rem] h-20 xs:w-[4.5rem] xs:h-[4.5rem] rounded-sm z-10 object-cover"
                     />
                   );
                 })}
@@ -73,8 +75,8 @@ const ProductDetail = () => {
             {productsDetail.description}
           </p>
           <div className="flex items-center justify-between  gap-8 xs:flex-col xs:items-start">
-            <div className="max-w-min flex flex-1  items-center justify-start  xs:order-last  border-primary-black">
-              <p className="font-thin text-2xl mr-3 ">Quantity</p>
+            <div className="flex flex-1 max-w-min items-center justify-start  border-primary-black">
+              <p className="font-thin text-2xl mr-3">Quantity</p>
               <div className="flex border border-primary-black">
                 <button
                   onClick={handleDec}
@@ -95,7 +97,7 @@ const ProductDetail = () => {
                 </button>
               </div>
             </div>
-            <p className="text-xl font-thin xs:font-semibold">
+            <p className="text-xl font-thin">
               ${CurrencyFormatter("en-US", productsDetail.price)}
             </p>
           </div>
@@ -116,7 +118,7 @@ const ProductDetail = () => {
             <Link
               title="buy now!"
               to="/NotFound"
-              className=" px-10 py-4  xl:px-4 xl:py-2 text-xl shrink-0 sm:self-start bg-primary-black hover:bg-primary-darkGray hover:text-primary-white transition ease-out   text-primary-white font-thin"
+              className=" px-10 py-4  xl:px-4 xl:py-2 text-xl shrink-0 sm:self-start bg-primary-black hover:bg-primary-darkGray hover:text-seco transition ease-out   text-primary-white font-thin"
             >
               buy now!
             </Link>
@@ -127,4 +129,4 @@ const ProductDetail = () => {
   );
 };
 
-export default ProductDetail;
+export default ProductPreview;

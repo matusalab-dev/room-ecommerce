@@ -15,8 +15,8 @@ const Footer = ({ className }) => {
         />
       </div>
       <article className="about__us">
-        <h3 className="heading heading--secondary">About our furniture</h3>
-        <p className="description about__description">
+        <h2 className="heading heading--secondary">About our furniture</h2>
+        <p className="description about__description xs:font-thin">
           Our multifunctional collection blends design and function to suit your
           individual taste. Make each room unique, or pick a cohesive theme that
           best express your interests and what inspires you. Find the furniture

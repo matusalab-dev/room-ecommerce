@@ -1,9 +1,8 @@
 import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
-import { useStateContext } from "../Contexts/StateContext";
-import { CategoriesDataProvider } from "../data/CategoriesData";
-import { useLocalStorage } from "../Hooks/useLocalStorage";
+import { useStateContext } from "../contexts/StateContext";
+import { SHOP_DATA } from "../data/categoriesData";
 
 const ProductCategory = () => {
   const { foundItem, searchItem, setSearchItem } = useStateContext();
@@ -17,25 +16,31 @@ const ProductCategory = () => {
     <>
       {searchItem == "" && (
         <section
-          className={`mt-12 grid grid-cols-categoryCol  grid-rows-categoryRow gap-4`}
+          className={`mt-12 grid grid-cols-categoryCol  grid-rows-categoryRow gap-4 overflow-x-scroll`}
         >
-          {CategoriesDataProvider.map((data) => {
-            // console.log(data.url);
+          {SHOP_DATA.map((data) => {
             return (
               <NavLink
-                key={data.url}
-                to={`./product-category/${data.url}`}
-                className={data.className}
+                key={data.title}
+                to={`./product-category/${data.title}`}
+                className={
+                  data.className +
+                  " " +
+                  "lg:relative lg:col-span-2 lg:row-span-full lg:min-w-[10rem] "
+                }
               >
                 <figure className="w-full h-full ">
                   <img
-                    src={data.imageUrl}
-                    alt="armchair & table furniture"
+                    src={data.backgroundImage}
+                    alt={`${data.title} category`}
                     className="z-10 object-cover block  w-full h-full"
                   />
                 </figure>
-                <figcaption className="category__figcaption ">
-                  {data.category}
+                <figcaption className="category__figcaption drop-shadow-sm  shadow-black">
+                  {data.title}
+                  <span className=" text-base font-thin">
+                    ({data.items.length})
+                  </span>
                 </figcaption>
                 <div className="overlay--inner "></div>
               </NavLink>
