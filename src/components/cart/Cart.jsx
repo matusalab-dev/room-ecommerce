@@ -62,7 +62,7 @@ const Cart = () => {
             <Link
               title="buy now"
               // link="/NotFound"
-              to="/NotFound"
+              to="/payment/checkout"
               className="block px-6 py-3 sm:px-4 sm:py-2  rounded-sm  hover:shadow-sm hover:shadow-primary-darkGray hover:bg-primary-darkGray  transition ease-out text-center text-2xl justify-items-center ml-auto self-center col-start-2 col-end-3 row-[1/3]   text-primary-white bg-primary-black "
             >
               buy now

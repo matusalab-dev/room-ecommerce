@@ -2,6 +2,7 @@ import { NavLinkList } from "../navbar/NavList";
 import { NavLink } from "react-router-dom";
 import CurrencyFormatter from "../../utils/currencyFormatter";
 import { AiOutlineDelete } from "react-icons/ai";
+import CartQuantity from "./CartQuantity";
 
 const CartItem = ({
   cartProducts,
@@ -51,23 +52,11 @@ const CartItem = ({
               <p className="text-[1rem] sm:text-sm  col-[3/4] self-start place-self-end ">
                 ${CurrencyFormatter("en-US", price)}
               </p>
-              <div className="flex p-0 items-center justify-between border-[1px] border-primary-black">
-                <button
-                  onClick={() => handleCartQuantity(id, "dec")}
-                  className=" text-primary-black text-3xl sm:text-2xl  flex  items-center justify-center border-r-[1px] border-primary-black px-2"
-                >
-                  -
-                </button>
-                <p className="text-base sm:text-sm py-0 px-2 font-secondary">
-                  {quantity}
-                </p>
-                <button
-                  onClick={() => handleCartQuantity(id, "inc")}
-                  className="text-primary-black font-thin text-2xl sm:text-xl border-l-[1px] px-2  self-center flex items-center justify-center text-center border-primary-black"
-                >
-                  +
-                </button>
-              </div>
+              <CartQuantity
+                incrementQuantity={() => handleCartQuantity(id, "inc")}
+                decrementQuantity={() => handleCartQuantity(id, "dec")}
+                quantity={quantity}
+              />
               <button
                 className="self-end ml-auto"
                 onClick={() => handleRemove(cartItem, quantity)}

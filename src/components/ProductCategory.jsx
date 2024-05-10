@@ -8,7 +8,7 @@ const ProductCategory = () => {
   const { foundItem, searchItem, setSearchItem } = useStateContext();
 
   useEffect(() => {
-    foundItem;
+    // foundItem;
     setSearchItem("");
   }, []);
 
@@ -38,7 +38,7 @@ const ProductCategory = () => {
                 </figure>
                 <figcaption className="category__figcaption drop-shadow-sm  shadow-black">
                   {data.title}
-                  <span className=" text-base font-thin">
+                  <span className=" text-base font-sans">
                     ({data.items.length})
                   </span>
                 </figcaption>

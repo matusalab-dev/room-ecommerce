@@ -117,8 +117,8 @@ const ProductPreview = () => {
             </button>
             <Link
               title="buy now!"
-              to="/NotFound"
-              className=" px-10 py-4  xl:px-4 xl:py-2 text-xl shrink-0 sm:self-start bg-primary-black hover:bg-primary-darkGray hover:text-seco transition ease-out   text-primary-white font-thin"
+              to="/payment/checkout"
+              className=" px-10 py-4  xl:px-4 xl:py-2 text-xl shrink-0 sm:self-start bg-primary-black hover:bg-primary-darkGray hover:text-secondary transition ease-out   text-primary-white font-thin"
             >
               buy now!
             </Link>

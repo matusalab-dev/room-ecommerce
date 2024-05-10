@@ -79,17 +79,17 @@ const ProductDetail = () => {
                 <button
                   onClick={handleDec}
                   disabled={productsDetail.inCart}
-                  className="shrink-[2] text-primary-black font-thin text-3xl border-r-[1px]  h-6 px-2 flex  items-center justify-center border-primary-black"
+                  className="shrink-[2] text-primary-black font-thin text-3xl border-r-[1px]  h-8 px-2 flex  items-center justify-center border-primary-black"
                 >
                   -
                 </button>
-                <span className="text-lg  flex font-thin py-0 px-3 font-secondary shrink-0">
+                <span className="text-lg  flex items-center font-thin px-3 font-secondary shrink-0">
                   {qty}
                 </span>
                 <button
                   onClick={handleInc}
                   disabled={productsDetail.inCart}
-                  className="shrink-[2] text-primary-black font-thin text-2xl h-6  px-2 border-l-[1px]   flex  items-center justify-center border-primary-black"
+                  className="shrink-[2] text-primary-black font-thin text-2xl h-8  px-2 border-l-[1px] flex  items-center justify-center border-primary-black"
                 >
                   +
                 </button>
@@ -115,7 +115,7 @@ const ProductDetail = () => {
             </button>
             <Link
               title="buy now!"
-              to="/NotFound"
+              to="/payment/checkout"
               className=" px-10 py-4  xl:px-4 xl:py-2 text-xl shrink-0 sm:self-start bg-primary-black hover:bg-primary-darkGray hover:text-primary-white transition ease-out   text-primary-white font-thin"
             >
               buy now!
