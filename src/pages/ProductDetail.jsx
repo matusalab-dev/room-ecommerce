@@ -7,6 +7,7 @@ import CurrencyFormatter from "../utils/currencyFormatter";
 import { CustomContainer } from "../layouts/CustomContainer";
 
 import IconArrow from "../assets/icons/IconArrow";
+import CartQuantity from "../components/cart/CartQuantity";
 
 const ProductDetail = () => {
   const { handleInc, handleDec, qty, handleAddToCart } = useStateContext();
@@ -94,12 +95,18 @@ const ProductDetail = () => {
                   +
                 </button>
               </div>
+              {/* <CartQuantity
+                incrementQuantity={() => handleInc()}
+                decrementQuantity={() => handleDec()}
+                quantity={qty}
+                styleQuantity="text-lg px-3 w-full sm:text-base"
+              /> */}
             </div>
             <p className="text-xl font-thin xs:font-semibold">
               ${CurrencyFormatter("en-US", productsDetail.price)}
             </p>
           </div>
-          <div className="flex justify-between">
+          <div className="flex justify-between xs:flex-col xs:gap-4">
             <button
               disabled={productsDetail.inCart}
               title={`${
@@ -108,15 +115,15 @@ const ProductDetail = () => {
               onClick={() => handleAddToCart(productsDetail, qty)}
               className={`${
                 productsDetail.inCart &&
-                "bg-gray-900 cursor-not-allowed text-gray-100 border-gray-800"
-              }bg-gray-900  px-10 py-4 xl:px-4 xl:py-2 text-xl shrink-0 max-content  font-thin border-[1.2px] border-primary-black`}
+                "bg-gray-900 cursor-not-allowed text-gray-100 border-gray-800 xs:box-border"
+              }bg-gray-900 xs:w-full  xs:px-10 px-8 py-4 text-xl shrink-0 max-content font-thin border-[1.2px] border-primary-black`}
             >
               add to cart
             </button>
             <Link
               title="buy now!"
               to="/payment/checkout"
-              className=" px-10 py-4  xl:px-4 xl:py-2 text-xl shrink-0 sm:self-start bg-primary-black hover:bg-primary-darkGray hover:text-primary-white transition ease-out   text-primary-white font-thin"
+              className="xs:w-full xs:px-10 px-8 py-4  text-xl shrink-0 sm:self-start bg-primary-black hover:bg-primary-darkGray hover:text-primary-white transition ease-out xl:text-center text-primary-white font-thin"
             >
               buy now!
             </Link>

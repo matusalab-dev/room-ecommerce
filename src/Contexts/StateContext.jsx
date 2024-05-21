@@ -47,8 +47,8 @@ export const StateProvider = ({ children }) => {
 
       // update cart status
       setCartStatus("product is added to a cart!");
-
       setShowCart(true);
+
       return;
     }
 
@@ -63,6 +63,7 @@ export const StateProvider = ({ children }) => {
     setTotalPrice(
       (prevTotalPrice) => prevTotalPrice + productToAdd.price * quantity
     );
+    setQty(1);
   }
 
   // function to remove a product from the cart and update state accordingly
