@@ -5,12 +5,12 @@ import { useStateContext } from "../contexts/StateContext";
 import { SHOP_DATA } from "../data/categoriesData";
 
 const ProductCategory = () => {
-  const { foundItem, searchItem, setSearchItem } = useStateContext();
+  const { searchItem, setSearchItem } = useStateContext();
 
   useEffect(() => {
     // foundItem;
     setSearchItem("");
-  }, []);
+  }, [searchItem]);
 
   return (
     <>

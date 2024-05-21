@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 import CarousalList from "../data/carousalList";
 import shoppingProduct from "../data/shoppingProduct";

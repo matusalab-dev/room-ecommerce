@@ -7,7 +7,7 @@ import CurrencyFormatter from "../utils/currencyFormatter";
 import { CustomContainer } from "../layouts/CustomContainer";
 
 import IconArrow from "../assets/icons/IconArrow";
-import CartQuantity from "../components/cart/CartQuantity";
+// import CartQuantity from "../components/cart/CartQuantity";
 
 const ProductDetail = () => {
   const { handleInc, handleDec, qty, handleAddToCart } = useStateContext();
