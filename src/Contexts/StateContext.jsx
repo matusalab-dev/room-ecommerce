@@ -6,7 +6,7 @@ import shoppingProduct from "../data/shoppingProduct";
 // create context
 const StateContext = createContext([]);
 
-export const StateProvider = ({ children }) => {
+const StateProvider = ({ children }) => {
   const [slideIndex, setSlideIndex] = useState(0);
   // shopping Products details
   const productsDetail = shoppingProduct();
@@ -17,6 +17,7 @@ export const StateProvider = ({ children }) => {
   const [cartStatus, setCartStatus] = useState("");
   const [qty, setQty] = useState(1);
   const [cartItems, setCartItems] = useState([]);
+  const [wishLists, setWishLists] = useState([]);
   const [totalQty, setTotalQty] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
 
@@ -48,22 +49,62 @@ export const StateProvider = ({ children }) => {
       // update cart status
       setCartStatus("product is added to a cart!");
       setShowCart(true);
+    } else {
+      // if it is not in the cart then add it to the cart. then update the incart status into true
+      setCartItems([
+        ...cartItems,
+        { ...productToAdd, quantity: quantity, inCart: true },
+      ]);
+
+      // then update price and quantity accordingly
+      setTotalQty((prevTotalQty) => prevTotalQty + quantity);
+      setTotalPrice(
+        (prevTotalPrice) => prevTotalPrice + productToAdd.price * quantity
+      );
+      setQty(1);
+    }
+  }
+
+  /* a function get called after clicking `addtowishlist` button which accept two arguments,
+   the product instance we want to add to the cart `productToAdd` and the quantity of the product `quantity`*/
+  function handleAddToWishList(productWishToAdd) {
+    // check if the product exist in the wishList
+    const doesExist = wishLists.find(
+      (cartItem) => cartItem.id === productWishToAdd.id
+    );
+
+    // if it exist in the cart
+    if (doesExist) {
+      // update productInfo after updating the existing cartItems in-cart state into true
+      setProductInfo((prevProductInfo) => {
+        const updatedWishLists = prevProductInfo.map((productInfo) =>
+          productInfo.id === productWishToAdd.id
+            ? { ...productInfo, inWishList: true }
+            : productInfo
+        );
+
+        return updatedWishLists;
+      });
+
+      // update cart status
+      setCartStatus("product is added to a wish-list!");
+      setShowCart(true);
 
       return;
+    } else {
+      // if it is not in the cart then add it to the cart. then update the incart status into true
+      setCartItems([
+        ...cartItems,
+        { ...productToAdd, quantity: quantity, inCart: true },
+      ]);
+
+      // then update price and quantity accordingly
+      setTotalQty((prevTotalQty) => prevTotalQty + quantity);
+      setTotalPrice(
+        (prevTotalPrice) => prevTotalPrice + productToAdd.price * quantity
+      );
+      setQty(1);
     }
-
-    // if it is not in the cart then add it to the cart. then update the incart status into true
-    setCartItems([
-      ...cartItems,
-      { ...productToAdd, quantity: quantity, inCart: true },
-    ]);
-
-    // then update price and quantity accordingly
-    setTotalQty((prevTotalQty) => prevTotalQty + quantity);
-    setTotalPrice(
-      (prevTotalPrice) => prevTotalPrice + productToAdd.price * quantity
-    );
-    setQty(1);
   }
 
   // function to remove a product from the cart and update state accordingly
@@ -169,19 +210,17 @@ export const StateProvider = ({ children }) => {
 
   function handleSearch(e) {
     const searchValue = e.target.value;
-    // useEffect(() => {
+
     setSearchItem(searchValue.toLowerCase());
 
     const productFound = productInfo.filter((product) => {
       console.log(product);
       return (
-        searchItem !== "" &&
-        product.name.trim().toLowerCase().includes(searchItem)
+        searchItem !== "" && product.name.toLowerCase().includes(searchItem)
       );
     });
 
     setFoundItem(productFound);
-    // }, [searchItem, foundItem]);
   }
 
   // home-page slides context
@@ -246,4 +285,6 @@ export const StateProvider = ({ children }) => {
   );
 };
 
-export const useStateContext = () => useContext(StateContext);
+const useStateContext = () => useContext(StateContext);
+
+export { StateProvider, useStateContext };

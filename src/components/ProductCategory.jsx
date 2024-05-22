@@ -7,10 +7,10 @@ import { SHOP_DATA } from "../data/categoriesData";
 const ProductCategory = () => {
   const { searchItem, setSearchItem } = useStateContext();
 
-  useEffect(() => {
-    // foundItem;
-    setSearchItem("");
-  }, [searchItem]);
+  // useEffect(() => {
+  //   // foundItem;
+  //   setSearchItem("");
+  // }, [searchItem]);
 
   return (
     <>
