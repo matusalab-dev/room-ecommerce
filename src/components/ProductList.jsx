@@ -10,7 +10,7 @@ import Footer from "../layouts/Footer";
 import { GridLayout } from "../layouts/GridLayout";
 
 export const ProductItem = ({ searchItem, route }) => {
-  const { handleAddToCart, qty } = useStateContext();
+  const { handleAddToCart, handleAddToWishlist, qty } = useStateContext();
   const [hoveredItemId, setHoveredItemId] = useState(null);
 
   function handleMouseEnter(productId) {
@@ -45,9 +45,9 @@ export const ProductItem = ({ searchItem, route }) => {
 
         <button
           role="button"
-          // disabled={currentProduct.inCart}
+          disabled={currentProduct.inWishlist}
           title="add to wish list"
-          onClick={() => console.log("I wish to buy this", currentProduct.name)}
+          onClick={() => handleAddToWishlist(currentProduct, qty)}
         >
           <FaRegHeart
             fontWeight="100"

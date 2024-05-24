@@ -14,9 +14,11 @@ const Cart = () => {
     totalPrice,
     handleRemoveFromCart,
     handleCartQuantity,
+    wishlistItems,
   } = useStateContext();
 
-  console.log(cartItems);
+  console.log("cart-items", cartItems);
+  console.log("Wishlist", wishlistItems);
 
   return (
     <article

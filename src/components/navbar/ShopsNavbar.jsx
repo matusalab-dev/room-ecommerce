@@ -1,12 +1,17 @@
 import { useState } from "react";
 import { twMerge } from "tailwind-merge";
-import { AiOutlineUser, AiOutlineSearch, AiOutlineHeart } from "react-icons/ai";
+import {
+  AiOutlineUser,
+  AiOutlineSearch,
+  AiOutlineHeart,
+  AiOutlineShoppingCart,
+} from "react-icons/ai";
 
 import { useStateContext } from "../../contexts/StateContext";
 import useToggle from "../../Hooks/useToggle";
 import { NavList } from "./Navbar";
 import { NavHashList, NavLinkList } from "./NavList";
-import CartCountBadge from "../cart/CartCountBadge";
+import CountBadge from "../cart/CountBadge";
 import SearchInput from "../search/SearchInput";
 import SearchPopup from "../search/SearchPopup";
 
@@ -54,8 +59,15 @@ const NavListShop = ({ className }) => {
 };
 
 export const ShopsNavbar = () => {
-  const { totalQty, searchItem, handleSearch, handleShowCart } =
-    useStateContext();
+  const {
+    totalQty,
+    searchItem,
+    handleSearch,
+    handleShowCart,
+    setShowWishlist,
+    handleShowWishlist,
+    totalWishlistQty,
+  } = useStateContext();
 
   const { isToggled, handleIsToggled } = useToggle();
   const [showPopup, setShowPopup] = useState(false);
@@ -132,19 +144,42 @@ export const ShopsNavbar = () => {
             <AiOutlineUser className=" sm:text-[1.65rem] font-thin  shrink-0 hover:cursor-pointer" />
           </li>
           <li className="sm:mr-2 ">
-            <span className="cartWrapper flex relative justify-center ">
-              <AiOutlineHeart
+            {/* <span
+              onClick={() =>
+                setShowWishlist((preShowWishlist) => !preShowWishlist)
+              }
+              className="cartWrapper flex relative justify-center "
+            > */}
+            {/* <AiOutlineHeart
                 className="sm:text-[1.65rem] shrink-0 hover:cursor-pointer"
                 // onClick={handleWishlist}
                 title="coming soon"
               />
-              <sup className="cart-qty">{totalQty}</sup>
-            </span>
+              <sup className="cart-qty">{totalWishlistQty}</sup> */}
+            <CountBadge
+              handleShow={handleShowWishlist}
+              Qty={totalWishlistQty}
+              icon={
+                <AiOutlineHeart
+                  className="sm:text-[1.65rem] shrink-0 hover:cursor-pointer"
+                  onClick={handleShowWishlist}
+                  title="wish-list"
+                />
+              }
+            />
+            {/* </span> */}
           </li>
           <li>
-            <CartCountBadge
-              handleShowCart={handleShowCart}
-              totalQty={totalQty}
+            <CountBadge
+              handleShow={handleShowCart}
+              Qty={totalQty}
+              icon={
+                <AiOutlineShoppingCart
+                  className="sm:text-[1.65rem] shrink-0 hover:cursor-pointer"
+                  onClick={handleShowCart}
+                  title="cart-items"
+                />
+              }
             />
           </li>
         </ul>

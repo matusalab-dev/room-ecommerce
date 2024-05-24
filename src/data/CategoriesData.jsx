@@ -33,6 +33,7 @@ export const SHOP_DATA = [
         statusBadge: "New",
         quantity: 1,
         inCart: false,
+        inWishlist: false,
       },
       {
         id: uuid(),
@@ -53,6 +54,7 @@ export const SHOP_DATA = [
         statusBadge: "New",
         quantity: 1,
         inCart: false,
+        inWishlist: false,
       },
       {
         id: uuid(),
@@ -67,6 +69,7 @@ export const SHOP_DATA = [
         statusBadge: "New",
         quantity: 1,
         inCart: false,
+        inWishlist: false,
       },
       {
         id: uuid(),
@@ -81,6 +84,7 @@ export const SHOP_DATA = [
         statusBadge: "New",
         quantity: 1,
         inCart: false,
+        inWishlist: false,
       },
       {
         id: uuid(),
@@ -95,6 +99,7 @@ export const SHOP_DATA = [
         statusBadge: "New",
         quantity: 1,
         inCart: false,
+        inWishlist: false,
       },
       {
         id: uuid(),
@@ -109,6 +114,7 @@ export const SHOP_DATA = [
         statusBadge: "New",
         quantity: 1,
         inCart: false,
+        inWishlist: false,
       },
     ],
   },
@@ -131,6 +137,7 @@ export const SHOP_DATA = [
         statusBadge: "New",
         quantity: 1,
         inCart: false,
+        inWishlist: false,
       },
       {
         id: uuid(),
@@ -145,6 +152,7 @@ export const SHOP_DATA = [
         statusBadge: "New",
         quantity: 1,
         inCart: false,
+        inWishlist: false,
       },
       {
         id: uuid(),
@@ -159,6 +167,7 @@ export const SHOP_DATA = [
         statusBadge: "New",
         quantity: 1,
         inCart: false,
+        inWishlist: false,
       },
       {
         id: uuid(),
@@ -173,6 +182,7 @@ export const SHOP_DATA = [
         statusBadge: "New",
         quantity: 1,
         inCart: false,
+        inWishlist: false,
       },
       {
         id: uuid(),
@@ -187,6 +197,7 @@ export const SHOP_DATA = [
         statusBadge: "New",
         quantity: 1,
         inCart: false,
+        inWishlist: false,
       },
       {
         id: uuid(),
@@ -201,6 +212,7 @@ export const SHOP_DATA = [
         statusBadge: "New",
         quantity: 1,
         inCart: false,
+        inWishlist: false,
       },
     ],
   },
@@ -223,6 +235,7 @@ export const SHOP_DATA = [
         statusBadge: "New",
         quantity: 1,
         inCart: false,
+        inWishlist: false,
       },
       {
         id: uuid(),
@@ -237,6 +250,7 @@ export const SHOP_DATA = [
         statusBadge: "New",
         quantity: 1,
         inCart: false,
+        inWishlist: false,
       },
       {
         id: uuid(),
@@ -251,6 +265,7 @@ export const SHOP_DATA = [
         statusBadge: "New",
         quantity: 1,
         inCart: false,
+        inWishlist: false,
       },
       {
         id: uuid(),
@@ -265,6 +280,7 @@ export const SHOP_DATA = [
         statusBadge: "New",
         quantity: 1,
         inCart: false,
+        inWishlist: false,
       },
       {
         id: uuid(),
@@ -279,6 +295,7 @@ export const SHOP_DATA = [
         statusBadge: "New",
         quantity: 1,
         inCart: false,
+        inWishlist: false,
       },
     ],
   },
@@ -300,6 +317,7 @@ export const SHOP_DATA = [
         statusBadge: "New",
         quantity: 1,
         inCart: false,
+        inWishlist: false,
       },
       {
         id: uuid(),
@@ -314,6 +332,7 @@ export const SHOP_DATA = [
         statusBadge: "New",
         quantity: 1,
         inCart: false,
+        inWishlist: false,
       },
       {
         id: uuid(),
@@ -328,6 +347,7 @@ export const SHOP_DATA = [
         statusBadge: "New",
         quantity: 1,
         inCart: false,
+        inWishlist: false,
       },
       {
         id: uuid(),
@@ -342,6 +362,7 @@ export const SHOP_DATA = [
         statusBadge: "New",
         quantity: 1,
         inCart: false,
+        inWishlist: false,
       },
       {
         id: uuid(),
@@ -356,6 +377,7 @@ export const SHOP_DATA = [
         statusBadge: "New",
         quantity: 1,
         inCart: false,
+        inWishlist: false,
       },
       {
         id: uuid(),
@@ -370,6 +392,7 @@ export const SHOP_DATA = [
         statusBadge: "New",
         quantity: 1,
         inCart: false,
+        inWishlist: false,
       },
       {
         id: uuid(),
@@ -384,6 +407,7 @@ export const SHOP_DATA = [
         statusBadge: "New",
         quantity: 1,
         inCart: false,
+        inWishlist: false,
       },
     ],
   },
@@ -406,6 +430,7 @@ export const SHOP_DATA = [
         statusBadge: "New",
         quantity: 1,
         inCart: false,
+        inWishlist: false,
       },
       {
         id: uuid(),
@@ -420,6 +445,7 @@ export const SHOP_DATA = [
         statusBadge: "New",
         quantity: 1,
         inCart: false,
+        inWishlist: false,
       },
       {
         id: uuid(),
@@ -434,6 +460,7 @@ export const SHOP_DATA = [
         statusBadge: "New",
         quantity: 1,
         inCart: false,
+        inWishlist: false,
       },
 
       {
@@ -449,6 +476,7 @@ export const SHOP_DATA = [
         statusBadge: "New",
         quantity: 1,
         inCart: false,
+        inWishlist: false,
       },
     ],
   },
@@ -470,6 +498,7 @@ export const SHOP_DATA = [
         statusBadge: "New",
         quantity: 1,
         inCart: false,
+        inWishlist: false,
       },
 
       {
@@ -484,6 +513,7 @@ export const SHOP_DATA = [
         statusBadge: "New",
         quantity: 1,
         inCart: false,
+        inWishlist: false,
       },
       {
         id: uuid(),
@@ -497,6 +527,7 @@ export const SHOP_DATA = [
         statusBadge: "New",
         quantity: 1,
         inCart: false,
+        inWishlist: false,
       },
       {
         id: uuid(),
@@ -510,6 +541,7 @@ export const SHOP_DATA = [
         statusBadge: "New",
         quantity: 1,
         inCart: false,
+        inWishlist: false,
       },
     ],
   },

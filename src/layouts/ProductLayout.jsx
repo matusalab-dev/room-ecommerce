@@ -4,6 +4,7 @@ import { useStateContext } from "../contexts/StateContext";
 import { ShopsNavbar } from "../components/navbar/ShopsNavbar";
 import Cart from "../components/cart/Cart";
 import { CustomContainer } from "./CustomContainer";
+import Wishlist from "../components/wishlist/WishList";
 
 const ProductLayout = () => {
   const { productid } = useParams();
@@ -19,6 +20,7 @@ const ProductLayout = () => {
     <CustomContainer className={` max-w-[95%] flex-col mt-10`}>
       <ShopsNavbar />
       <Cart />
+      <Wishlist />
       <Outlet context={filteredProduct[0]} />
     </CustomContainer>
   );

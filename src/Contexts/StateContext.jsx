@@ -14,15 +14,22 @@ const StateProvider = ({ children }) => {
   // products state
   const [productInfo, setProductInfo] = useState(productsDetail);
   const [showCart, setShowCart] = useState(false);
+  const [showWishlist, setShowWishlist] = useState(false);
+  const [wishlistStatus, setWishlistStatus] = useState(false);
   const [cartStatus, setCartStatus] = useState("");
   const [qty, setQty] = useState(1);
   const [cartItems, setCartItems] = useState([]);
-  const [wishLists, setWishLists] = useState([]);
+  const [wishlistItems, setWishlistItems] = useState([]);
   const [totalQty, setTotalQty] = useState(0);
+  const [totalWishlistQty, setTotalWishlistQty] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [totalWishlistPrice, setTotalWishlistPrice] = useState(0);
 
   const handleShowCart = () => {
     setShowCart((prevShown) => !prevShown);
+  };
+  const handleShowWishlist = () => {
+    setShowWishlist((prevShown) => !prevShown);
   };
 
   /* a function get called after clicking `addtocart` button which accept two arguments,
@@ -47,7 +54,7 @@ const StateProvider = ({ children }) => {
       });
 
       // update cart status
-      setCartStatus("product is added to a cart!");
+      setCartStatus("product is already added in a cart!");
       setShowCart(true);
     } else {
       // if it is not in the cart then add it to the cart. then update the incart status into true
@@ -67,19 +74,19 @@ const StateProvider = ({ children }) => {
 
   /* a function get called after clicking `addtowishlist` button which accept two arguments,
    the product instance we want to add to the cart `productToAdd` and the quantity of the product `quantity`*/
-  function handleAddToWishList(productWishToAdd) {
+  function handleAddToWishlist(productWishToAdd, quantity) {
     // check if the product exist in the wishList
-    const doesExist = wishLists.find(
-      (cartItem) => cartItem.id === productWishToAdd.id
+    const doesExist = wishlistItems.find(
+      (wishlistItem) => wishlistItem.id === productWishToAdd.id
     );
 
     // if it exist in the cart
     if (doesExist) {
-      // update productInfo after updating the existing cartItems in-cart state into true
+      // update productInfo after updating the existing cartItems in-wishlist state into true
       setProductInfo((prevProductInfo) => {
         const updatedWishLists = prevProductInfo.map((productInfo) =>
           productInfo.id === productWishToAdd.id
-            ? { ...productInfo, inWishList: true }
+            ? { ...productInfo, inWishlist: true }
             : productInfo
         );
 
@@ -87,23 +94,21 @@ const StateProvider = ({ children }) => {
       });
 
       // update cart status
-      setCartStatus("product is added to a wish-list!");
-      setShowCart(true);
-
-      return;
+      setWishlistStatus("product is added to a wish-list!");
+      setShowWishlist(true);
     } else {
       // if it is not in the cart then add it to the cart. then update the incart status into true
-      setCartItems([
-        ...cartItems,
-        { ...productToAdd, quantity: quantity, inCart: true },
+      setWishlistItems([
+        ...wishlistItems,
+        { ...productWishToAdd, inWishlist: true },
       ]);
 
       // then update price and quantity accordingly
-      setTotalQty((prevTotalQty) => prevTotalQty + quantity);
-      setTotalPrice(
-        (prevTotalPrice) => prevTotalPrice + productToAdd.price * quantity
+      setTotalWishlistQty((prevTotalQty) => prevTotalQty + quantity);
+      setTotalWishlistPrice(
+        (prevTotalPrice) => prevTotalPrice + productWishToAdd.price * quantity
       );
-      setQty(1);
+      // setQty(1);
     }
   }
 
@@ -134,6 +139,37 @@ const StateProvider = ({ children }) => {
       );
 
       return updatedCartItems;
+    });
+  }
+  // function to remove a product from the wish-list and update state accordingly
+  function handleRemoveFromWishlist(wishlistProduct) {
+    // find that cart items with product-id to be removed.
+    const productFound = wishlistItems.find(
+      (wishlistItems) => wishlistItems.id === wishlistProduct.id
+    );
+
+    // return all cart items except those with id that we want to get removed
+    const removedItem = wishlistItems.filter(
+      (item) => item.id !== wishlistProduct.id
+    );
+    // update the wishlistItems
+    setWishlistItems(removedItem);
+
+    setTotalWishlistQty((prevTotalQty) => prevTotalQty - productFound.quantity);
+    setTotalWishlistPrice(
+      (prevTotalPrice) =>
+        prevTotalPrice - productFound.price * productFound.quantity
+    );
+
+    // update productInfo after removing the existing wishlistItems, update in-cart state into false
+    setProductInfo((prevProductInfo) => {
+      const updatedWishlistItems = prevProductInfo.map((productInfo) =>
+        productInfo.id === wishlistProduct.id
+          ? { ...productInfo, inWishList: false }
+          : productInfo
+      );
+
+      return updatedWishlistItems;
     });
   }
 
@@ -278,6 +314,17 @@ const StateProvider = ({ children }) => {
     cartStatus,
     showCart,
     handleShowCart,
+    handleAddToWishlist,
+    setShowWishlist,
+    showWishlist,
+    setWishlistStatus,
+    wishlistStatus,
+    wishlistItems,
+    setWishlistItems,
+    handleShowWishlist,
+    totalWishlistQty,
+    totalWishlistPrice,
+    setTotalWishlistPrice,
   };
 
   return (
