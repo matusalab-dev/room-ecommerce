@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 
-import { useStateContext } from "../contexts/StateContext";
+import { useStateContext } from "../Contexts/StateContext";
 import ProductPreviewView from "../components/ui/ProductPreviewView";
 
 const ProductPreview = () => {

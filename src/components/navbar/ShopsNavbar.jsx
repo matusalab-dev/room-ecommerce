@@ -7,7 +7,7 @@ import {
   AiOutlineShoppingCart,
 } from "react-icons/ai";
 
-import { useStateContext } from "../../contexts/StateContext";
+import { useStateContext } from "../../Contexts/StateContext";
 import useToggle from "../../Hooks/useToggle";
 import { NavList } from "./Navbar";
 import { NavHashList, NavLinkList } from "./NavList";

@@ -1,4 +1,4 @@
-import { useStateContext } from "../../contexts/StateContext";
+import { useStateContext } from "../../Contexts/StateContext";
 import CurrencyFormatter from "../../utils/currencyFormatter";
 import { AiFillCloseSquare } from "react-icons/ai";
 import { Link } from "react-router-dom";

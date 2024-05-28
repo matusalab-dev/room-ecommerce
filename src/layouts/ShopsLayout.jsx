@@ -2,7 +2,7 @@ import { Outlet, useParams } from "react-router-dom";
 
 import { ShopsNavbar } from "../components/navbar/ShopsNavbar";
 import Cart from "../components/cart/Cart";
-import { useStateContext } from "../contexts/StateContext";
+import { useStateContext } from "../Contexts/StateContext";
 import SearchResultCount from "../components/search/SearchResultCount";
 import Wishlist from "../components/wishlist/WishList";
 

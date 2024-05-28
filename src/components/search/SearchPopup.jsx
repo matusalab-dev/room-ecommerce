@@ -1,6 +1,6 @@
 import { twMerge } from "tailwind-merge";
 
-import { useStateContext } from "../../contexts/StateContext";
+import { useStateContext } from "../../Contexts/StateContext";
 import { Overlay } from "../ui/Overlay";
 
 // import IconClose from "../../assets/icons/IconClose";

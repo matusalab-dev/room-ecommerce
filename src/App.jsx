@@ -12,7 +12,7 @@ import { NotFound } from "./pages/notFound";
 
 import "./App.css";
 import "./index.css";
-import { useStateContext } from "./contexts/StateContext";
+import { useStateContext } from "./Contexts/StateContext";
 
 export default function App() {
   const { handleInc, handleDec, qty, handleAddToCart } = useStateContext();

@@ -1,4 +1,4 @@
-import { useStateContext } from "../contexts/StateContext";
+import { useStateContext } from "../Contexts/StateContext";
 import { Navbar } from "../components/navbar/Navbar";
 
 const Header = () => {

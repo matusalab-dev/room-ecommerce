@@ -2,7 +2,7 @@ import { useState } from "react";
 import { NavLink, useOutletContext } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-import { useStateContext } from "../../contexts/StateContext";
+import { useStateContext } from "../../Contexts/StateContext";
 import CurrencyFormatter from "../../utils/currencyFormatter";
 import { CustomContainer } from "../../layouts/CustomContainer";
 

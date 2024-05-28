@@ -1,6 +1,6 @@
 import { Outlet, useParams } from "react-router-dom";
 
-import { useStateContext } from "../contexts/StateContext";
+import { useStateContext } from "../Contexts/StateContext";
 import { ShopsNavbar } from "../components/navbar/ShopsNavbar";
 import Cart from "../components/cart/Cart";
 import { CustomContainer } from "./CustomContainer";

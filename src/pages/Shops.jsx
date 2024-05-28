@@ -1,4 +1,4 @@
-import { useStateContext } from "../contexts/StateContext";
+import { useStateContext } from "../Contexts/StateContext";
 import ProductList, { ProductItem } from "../components/ProductList";
 import ProductCategory from "../components/ProductCategory";
 

@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-import { useStateContext } from "../contexts/StateContext";
+import { useStateContext } from "../Contexts/StateContext";
 
 import IconArrow from "../assets/icons/IconArrow";
 import IconRight from "../assets/icons/IconRight";

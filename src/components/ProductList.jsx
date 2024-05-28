@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { FaHeart, FaRegHeart, FaShoppingBasket } from "react-icons/fa";
 import { twMerge } from "tailwind-merge";
 
-import { useStateContext } from "../contexts/StateContext";
+import { useStateContext } from "../Contexts/StateContext";
 import CurrencyFormatter from "../utils/currencyFormatter";
 
 import Footer from "../layouts/Footer";
