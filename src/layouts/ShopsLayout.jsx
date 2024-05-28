@@ -15,6 +15,7 @@ export const ShopsLayout = () => {
     productCategory.url === category;
   });
 
+  console.log("filtered category", filteredCategory);
   return (
     // set relative positioning for the container if cart is Open
     <div className={`${showCart ? "relative" : " "}`}>

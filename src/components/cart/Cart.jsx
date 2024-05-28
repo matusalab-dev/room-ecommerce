@@ -24,12 +24,12 @@ const Cart = () => {
     <article
       className={`${
         showCart
-          ? "-translate-x-[0px] xs:translate-x-1"
-          : "-translate-x-[10000px]"
-      } space-y-9 shadow-black shadow-sm overflow-y-scroll px-6 py-7 sm:px-3 sm:py-4 z-50 absolute right-0 top-0 h-screen bg-[var(--color-light-gray)] text-primary-black`}
+          ? "translate-x-0 transition-transform duration-200 ease-linear sm:w-full"
+          : "-translate-x-[10000rem]"
+      } space-y-9 shadow-black shadow-sm overflow-y-scroll px-6 pb-10 pt-7 sm:px-3 sm:py-4 z-50 absolute right-0 top-0 h-screen bg-[var(--color-light-gray)] text-primary-black text-sm font-normal`}
     >
       <header className="flex items-center gap-8 sm:gap-3 justify-between">
-        <p className="text-sm  font-thin">
+        <p className="text-lg xs:text-[1rem]">
           Your shopping cart items ({totalQty})
         </p>
         <button data-message="close the cart items side-bar">
@@ -57,8 +57,8 @@ const Cart = () => {
           {/* divider line */}
           <div className="flex border-[0.8px]  border-primary-black border-dashed"></div>
 
-          <div className="font-thin mt-auto  grid gap-y-3 gap-x-4 w-full grid-cols-[repeat(2,minmax(max-content,1fr))] grid-rows-[min-content,min-content]">
-            <p className=" text-sm col-[1/2] row-[1/2]">
+          <div className=" mt-auto  grid gap-y-3 gap-x-4 w-full grid-cols-[repeat(2,minmax(max-content,1fr))] grid-rows-[min-content,min-content]">
+            <p className=" text-lg col-[1/2] row-[1/2]">
               Total Price for {totalQty} {`${totalQty > 1 ? "Items" : "Item"}`}
             </p>
             <Link
@@ -69,7 +69,7 @@ const Cart = () => {
             >
               buy now
             </Link>
-            <p className="flex text-3xl sm:text-2xl text-primary-black font-secondary col-[1/2] row-[2/3] justify-self-start">
+            <p className="flex text-2xl sm:text-2xl text-primary-black font-secondary col-[1/2] row-[2/3] justify-self-start">
               ${CurrencyFormatter("en-US", totalPrice)}
             </p>
           </div>

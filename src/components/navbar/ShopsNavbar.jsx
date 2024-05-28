@@ -58,15 +58,16 @@ const NavListShop = ({ className }) => {
   );
 };
 
-export const ShopsNavbar = () => {
+export const ShopsNavbar = ({ productsInfo }) => {
   const {
     totalQty,
-    searchItem,
-    handleSearch,
     handleShowCart,
     setShowWishlist,
     handleShowWishlist,
     totalWishlistQty,
+    productInfo,
+    handleSearch,
+    searchItem,
   } = useStateContext();
 
   const { isToggled, handleIsToggled } = useToggle();
@@ -143,40 +144,23 @@ export const ShopsNavbar = () => {
           <li>
             <AiOutlineUser className=" sm:text-[1.65rem] font-thin  shrink-0 hover:cursor-pointer" />
           </li>
-          <li className="sm:mr-2 ">
-            {/* <span
-              onClick={() =>
-                setShowWishlist((preShowWishlist) => !preShowWishlist)
-              }
-              className="cartWrapper flex relative justify-center "
-            > */}
-            {/* <AiOutlineHeart
-                className="sm:text-[1.65rem] shrink-0 hover:cursor-pointer"
-                // onClick={handleWishlist}
-                title="coming soon"
-              />
-              <sup className="cart-qty">{totalWishlistQty}</sup> */}
+          <li className="sm:mr-2 cursor-pointer" onClick={handleShowWishlist}>
             <CountBadge
-              handleShow={handleShowWishlist}
               Qty={totalWishlistQty}
               icon={
                 <AiOutlineHeart
-                  className="sm:text-[1.65rem] shrink-0 hover:cursor-pointer"
-                  onClick={handleShowWishlist}
+                  className="sm:text-[1.65rem] shrink-0 "
                   title="wish-list"
                 />
               }
             />
-            {/* </span> */}
           </li>
-          <li>
+          <li onClick={handleShowCart} className="cursor-pointer">
             <CountBadge
-              handleShow={handleShowCart}
               Qty={totalQty}
               icon={
                 <AiOutlineShoppingCart
-                  className="sm:text-[1.65rem] shrink-0 hover:cursor-pointer"
-                  onClick={handleShowCart}
+                  className="sm:text-[1.65rem] shrink-0 "
                   title="cart-items"
                 />
               }

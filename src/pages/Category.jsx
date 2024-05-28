@@ -26,7 +26,7 @@ const CategoryPreview = () => {
 
   return (
     <ProductList
-      headingTitle={`${CategoryTitle}s`}
+      headingTitle={`${CategoryTitle} Furnitures`}
       headingClass="text-5xl font-thin xs:text-2xl"
       // route={`./${productDetail.id}`}
     >

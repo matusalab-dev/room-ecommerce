@@ -1,11 +1,11 @@
 import { NavLinkList } from "../navbar/NavList";
 import { NavLink } from "react-router-dom";
 import CurrencyFormatter from "../../utils/currencyFormatter";
-import { AiOutlineDelete, AiOutlineShoppingCart } from "react-icons/ai";
+import { AiOutlineDelete } from "react-icons/ai";
 
 const WishlistItem = ({
   wishlistProducts,
-  handleRemove,
+  handleRemoveWishlist,
   handleShowCart,
   handleShowWishlist,
   handleAddToCart,
@@ -34,7 +34,7 @@ const WishlistItem = ({
           return (
             <div
               key={id}
-              className="font-thin
+              className="font-normal
                 bg-primary-white py-6 px-6 sm:py-3 sm:px-3 hover:shadow-md hover:shadow-primary-dark-gray gap-y-7 gap-x-5 sm:gap-x-3   justify-items-start grid grid-cols-[7.7em,minmax(max-content,max-content),minmax(max-content,100%)] xs:grid-cols-[6.7em,minmax(max-content,max-content),minmax(max-content,100%)] grid-rows-[repeat(2,min-content)]"
             >
               <img
@@ -45,8 +45,8 @@ const WishlistItem = ({
               <NavLink
                 title={name}
                 to={`/shopping/${wishlistItem.id}`}
-                className="text-[1rem] sm:text-sm  p-0 place-items-start  col-[2/3] max-w-[18ch] sm:max-w-[10ch] break-keep whitespace-nowrap overflow-hidden  text-ellipsis "
-                // onClick={handleShowWishlist && handleShowCart}
+                className="text-[1rem] sm:text-sm  p-0 place-items-start  col-[2/3] max-w-[18ch] sm:max-w-[11ch] break-keep whitespace-nowrap xs:overflow-hidden xs:text-ellipsis capitalize"
+                onClick={() => handleShowWishlist(false)}
               >
                 {name}
               </NavLink>
@@ -62,7 +62,7 @@ const WishlistItem = ({
               </button>
               <button
                 className="self-end ml-auto"
-                onClick={() => handleRemove(wishlistItem, quantity)}
+                onClick={() => handleRemoveWishlist(wishlistItem)}
               >
                 <AiOutlineDelete fontSize="17px" fontWeight="100" />
               </button>

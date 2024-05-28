@@ -14,8 +14,8 @@ const CartItem = ({
     <div className="space-y-4">
       {/* check if the cart is empty , tell them to go shopping*/}
       {cartProducts.length < 1 && (
-        <div className="flex flex-col gap-6 justify-center items-center">
-          <h2 className="font-thin"> your shopping bug is empty</h2>
+        <div className="flex flex-col gap-6 justify-center items-center ">
+          <h2 className=""> your shopping bug is empty</h2>
           <NavLinkList
             title="go back to shopping"
             link="../shopping"
@@ -33,8 +33,7 @@ const CartItem = ({
           return (
             <div
               key={id}
-              className="font-thin
-                bg-primary-white py-6 px-6 sm:py-3 sm:px-3 hover:shadow-md hover:shadow-primary-dark-gray gap-y-7 gap-x-5 sm:gap-x-3   justify-items-start grid grid-cols-[7.7em,minmax(max-content,max-content),minmax(max-content,100%)] xs:grid-cols-[6.7em,minmax(max-content,max-content),minmax(max-content,100%)] grid-rows-[repeat(2,min-content)]"
+              className="font-normal bg-primary-white py-6 px-6 sm:py-3 sm:px-3 hover:shadow-md hover:shadow-primary-dark-gray gap-y-7 gap-x-5 sm:gap-x-3 justify-items-start grid grid-cols-[7.7em,minmax(max-content,max-content),minmax(max-content,100%)] xs:grid-cols-[6.7em,minmax(max-content,max-content),minmax(max-content,100%)] grid-rows-[repeat(2,min-content)]"
             >
               <img
                 src={imageUrl}
@@ -45,7 +44,7 @@ const CartItem = ({
                 title={name}
                 to={`/shopping/${cartItem.id}`}
                 onClick={() => handleShowCart(false)}
-                className="text-[1rem] sm:text-sm  p-0 place-items-start  col-[2/3] max-w-[18ch] sm:max-w-[10ch] break-keep whitespace-nowrap overflow-hidden  text-ellipsis "
+                className="text-[1rem] sm:text-sm place-items-start col-[2/3] max-w-[18ch] sm:max-w-[10ch] break-keep whitespace-nowrap xs:overflow-hidden xs:text-ellipsis capitalize"
               >
                 {name}
               </NavLink>

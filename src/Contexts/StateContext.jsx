@@ -165,7 +165,7 @@ const StateProvider = ({ children }) => {
     setProductInfo((prevProductInfo) => {
       const updatedWishlistItems = prevProductInfo.map((productInfo) =>
         productInfo.id === wishlistProduct.id
-          ? { ...productInfo, inWishList: false }
+          ? { ...productInfo, inWishlist: false }
           : productInfo
       );
 
@@ -250,12 +250,12 @@ const StateProvider = ({ children }) => {
     setSearchItem(searchValue.toLowerCase());
 
     const productFound = productInfo.filter((product) => {
-      console.log(product);
       return (
         searchItem !== "" && product.name.toLowerCase().includes(searchItem)
       );
     });
 
+    console.log("filtered Search Product", productFound);
     setFoundItem(productFound);
   }
 
@@ -315,6 +315,7 @@ const StateProvider = ({ children }) => {
     showCart,
     handleShowCart,
     handleAddToWishlist,
+    handleRemoveFromWishlist,
     setShowWishlist,
     showWishlist,
     setWishlistStatus,

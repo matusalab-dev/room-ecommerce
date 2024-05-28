@@ -11,7 +11,7 @@ const SearchInput = ({ searchItem, handleSearch, toggle = null }) => {
       <InputComponent
         inputClass={`${
           toggle && "lg:flex bg-black"
-        } lg:hidden peer min-w-[5rem] w-full focus:outline-primary-darkGray rounded-sm focus:border-none outline-offset-0  items-center mt-0 bg-transparent focus:border-primary-darkGray border-[1.7px] active:border-primary-darkGray placeholder:text-primary-veryDarkGray placeholder:text-[0.9rem] text-primary-darkGray font-sans placeholder:font-sans font-semibold pl-4 pr-2 py-2 self-center`}
+        } lg:hidden peer min-w-[5rem] w-full focus:outline-primary-darkGray rounded-sm focus:border-none outline-offset-0  items-center mt-0 bg-transparent focus:border-primary-darkGray border-[1.7px] active:border-primary-darkGray placeholder:text-primary-veryDarkGray placeholder:text-[0.9rem] text-primary-darkGray placeholder:font-primary font-medium pl-4 pr-2 py-2 self-center`}
         placeholder="Looking for our products"
         name="search-input"
         labelIconClass="none w-0 h-0"

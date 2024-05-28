@@ -5,18 +5,17 @@ import ProductCategory from "../components/ProductCategory";
 const Shops = () => {
   const { foundItem } = useStateContext();
 
-  // useEffect(() => {
-  //   // document.querySelector("#root").addEventListener("click", () => {
-  //   //   console.log("document element clicked");
-  //   //   handleShowCart(false);
-  //   // });
-  //   // return () => {};
-  // }, [handleShowCart, showCart]);
-
   return (
     <>
       <ProductCategory />
-      <ProductList headingTitle="Our Collections">
+      {/* <ProductList headingTitle="Our Collections"> */}
+      <ProductList
+        headingTitle="Featured Items"
+        // productListHeadingStyle="text-7xl"
+      >
+        <p className="mb-20 xs:mb-12 text-lg text-primary-veryDarkGray text-center">
+          Must-have pieces selected every month
+        </p>
         <ProductItem searchItem={foundItem} />
       </ProductList>
     </>

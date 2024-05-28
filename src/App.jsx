@@ -12,8 +12,11 @@ import { NotFound } from "./pages/notFound";
 
 import "./App.css";
 import "./index.css";
+import { useStateContext } from "./contexts/StateContext";
 
 export default function App() {
+  const { handleInc, handleDec, qty, handleAddToCart } = useStateContext();
+
   return (
     <>
       <Routes>
@@ -25,26 +28,20 @@ export default function App() {
           <Route index element={<Shops />} />
         </Route>
 
-        {/* product details page route*/}
+        {/* product details page route with different shared-layout*/}
         <Route path="shopping/:productid" element={<ProductLayout />}>
           <Route index element={<ProductDetail />}></Route>
         </Route>
 
-        {/* product categories page route*/}
+        {/*Refactored product categories page route*/}
         <Route
-          path="shopping/product-category/:category"
+          path="shopping/product-category/:category/"
           element={<ShopsLayout />}
         >
           <Route index element={<Category />}></Route>
+          <Route path=":productid" element={<ProductPreview />}></Route>
         </Route>
 
-        {/* categorized product's details route */}
-        <Route
-          path="shopping/product-category/:category/:productid"
-          element={<ShopsLayout />}
-        >
-          <Route index element={<ProductPreview />}></Route>
-        </Route>
         {/* if the route doesn't match to the above routes, redirect user to the 404 page */}
         <Route path="*" element={<NotFound />} />
       </Routes>

@@ -18,7 +18,8 @@ module.exports = {
         },
       },
       fontFamily: {
-        primary: ["Markazi Text, serif"],
+        // primary: ["Markazi Text, serif"],
+        primary: ["League Spartan, sans-serif"],
         secondary: ["Karla, sans-serif"],
       },
       gridTemplateColumns: {

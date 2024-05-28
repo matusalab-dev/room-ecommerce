@@ -48,16 +48,11 @@
   }
 
   .category__figcaption {
-    @apply absolute z-20 bottom-3 left-3 max-w-[12ch] text-primary-white text-xl sm:text-lg font-[300] sm:font-[100] leading-[1.2] sm:leading-none;
+    @apply absolute z-20 bottom-3 left-3 max-w-[12ch] text-primary-white text-2xl sm:text-xl font-primary font-normal min-w-min leading-5 sm:leading-none;
   }
 
   /* product name figcaption  */
   .product__figcaption {
     @apply absolute z-20 bottom-1 left-3 max-w-[18ch] text-primary-white text-sm font-[300];
-  }
-
-  /* cart quantity */
-  .cart-qty {
-    @apply absolute left-5 bg-primary-black m-0 text-primary-white w-6 h-6 rounded-full flex justify-center items-center text-base;
   }
 }

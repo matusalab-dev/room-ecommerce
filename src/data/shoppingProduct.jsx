@@ -11,12 +11,12 @@ const data = categorizedItem;
 // all products inside available categories
 // kitchens category will be added soon
 const allProducts = [
-  ...data["living room furniture"],
-  ...data["bed room furniture"],
-  ...data["kid's furniture"],
-  ...data["dining room furniture"],
-  ...data["office furniture"],
-  ...data["entry way furniture"],
+  ...data["living room"],
+  ...data["bed room"],
+  ...data["kid's"],
+  ...data["dining room"],
+  ...data["office"],
+  ...data["entry way"],
 ];
 
 // console.log(allProducts);

@@ -15,9 +15,9 @@ import dinningRoom from "../assets/images/images/natural-wooden-dining.jpg";
 
 export const SHOP_DATA = [
   {
-    title: "Living Room Furniture",
+    title: "Living Room",
     backgroundImage: LivingRoom,
-    className: "relative col-[1/3] row-[1/-1]",
+    className: "relative col-span-2 row-[1/-1]",
 
     items: [
       {
@@ -119,7 +119,7 @@ export const SHOP_DATA = [
     ],
   },
   {
-    title: "Bed Room Furniture",
+    title: "Bed Room",
     backgroundImage: bedRoom,
     className: "relative col-[3/5] row-[1/3]",
 
@@ -217,7 +217,7 @@ export const SHOP_DATA = [
     ],
   },
   {
-    title: "Kid's Furniture",
+    title: "Kid's",
     backgroundImage: kidsRoom,
     className: "relative  col-[5/7] row-[1/3]",
 
@@ -300,7 +300,7 @@ export const SHOP_DATA = [
     ],
   },
   {
-    title: "Dining Room Furniture",
+    title: "Dining Room",
     backgroundImage: dinningRoom,
     className: "relative col-[3/5] row-[3/5]",
 
@@ -412,7 +412,7 @@ export const SHOP_DATA = [
     ],
   },
   {
-    title: "Office Furniture",
+    title: "Office",
     backgroundImage: officeFurniture,
     className: "relative col-[5/7] row-[3/5]",
 
@@ -481,9 +481,9 @@ export const SHOP_DATA = [
     ],
   },
   {
-    title: "Entry Way Furniture",
+    title: "Entry Way",
     backgroundImage: entryWay,
-    className: "relative col-[7/-1] row-[1/-1]",
+    className: "relative col-[7/9] row-[1/-1]",
 
     items: [
       {
@@ -545,4 +545,69 @@ export const SHOP_DATA = [
       },
     ],
   },
+  // {
+  //   title: "Kitchen Furniture",
+  //   backgroundImage: entryWay,
+  //   className: "relative col-[9/11] row-[1/-1]",
+
+  //   items: [
+  //     {
+  //       id: uuid(),
+  //       imageUrl: entryWay,
+  //       imageVariants: [entryWay, hero2, hero3, lightRoom, darkRoom],
+  //       name: "Tree pots in a shelf",
+  //       url: "living-room",
+  //       description:
+  //         "We provide unmatched quality, comfort, and style for property owners across the country. Our experts combine form and function in bringing your vision to life. Create a room in your own style with our collection and make your property a reflection of you and what you love.",
+  //       price: 3500,
+  //       statusBadge: "New",
+  //       quantity: 1,
+  //       inCart: false,
+  //       inWishlist: false,
+  //     },
+
+  //     {
+  //       id: uuid(),
+  //       imageUrl: hero3,
+  //       imageVariants: [hero1, hero2, hero3, lightRoom, darkRoom],
+  //       name: "office arm chair",
+  //       url: "entryway",
+  //       description:
+  //         "Our modern furniture store provide a high level of quality. Our company has invested in advanced technology to ensure that every product is made as perfect and as consistent as possible. With three decades of experience in this industry, we understand what customers want for their home and office.",
+  //       price: 2300.99,
+  //       statusBadge: "New",
+  //       quantity: 1,
+  //       inCart: false,
+  //       inWishlist: false,
+  //     },
+  //     {
+  //       id: uuid(),
+  //       imageUrl: lightRoom,
+  //       imageVariants: [hero1, hero2, hero3, lightRoom, darkRoom],
+  //       name: "comfortable sofa",
+  //       url: "kids-furniture",
+  //       description:
+  //         "We provide unmatched quality, comfort, and style for property owners across the country. Our experts combine form and function in bringing your vision to life. Create a room in your own style with our collection and make your property a reflection of you and what you love.",
+  //       price: 1200.99,
+  //       statusBadge: "New",
+  //       quantity: 1,
+  //       inCart: false,
+  //       inWishlist: false,
+  //     },
+  //     {
+  //       id: uuid(),
+  //       imageUrl: entryWay,
+  //       imageVariants: [entryWay, hero1, hero3, lightRoom, darkRoom],
+  //       name: "Tree pots in a shelf",
+  //       url: "bed-room",
+  //       description:
+  //         "With stores all over the world, it's easy for you to find furniture for your home or place of business. Locally, we're in most major cities throughout the country. Find the branch nearest you using our store locator. Any questions? Don't hesitate to contact us today.",
+  //       price: 1422.99,
+  //       statusBadge: "New",
+  //       quantity: 1,
+  //       inCart: false,
+  //       inWishlist: false,
+  //     },
+  //   ],
+  // },
 ];
