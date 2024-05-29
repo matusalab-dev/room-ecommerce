@@ -8,10 +8,12 @@ import CurrencyFormatter from "../utils/currencyFormatter";
 
 import Footer from "../layouts/Footer";
 import { GridLayout } from "../layouts/GridLayout";
+import { useLocalStorage } from "../hooks/useStorage";
 
 export const ProductItem = ({ searchItem, route }) => {
   const { handleAddToCart, handleAddToWishlist, qty } = useStateContext();
   const [hoveredItemId, setHoveredItemId] = useState(null);
+  const [productItem, setProductItem] = useLocalStorage("product-item", []);
 
   function handleMouseEnter(productId) {
     setHoveredItemId(productId);
@@ -81,8 +83,10 @@ export const ProductItem = ({ searchItem, route }) => {
     <GridLayout className="grid grid-cols-8 lg:grid-cols-6 justify-items-center lg:justify-center">
       {searchItem.map((productDetail) => {
         const isHovered = hoveredItemId === productDetail.id;
-        console.log("isHovered:", isHovered);
+        const isClicked = clickedItemId === productDetail.id;
 
+        console.log("clickedItemId", clickedItemId);
+        console.log("hoveredItemId", hoveredItemId);
         // memoized hovered navLinks
         const MemoizedNavLink = memo(
           () => (
@@ -141,7 +145,6 @@ const ProductList = ({ headingTitle, headingClass, children }) => {
     <>
       <main className="full-bleed inverse mt-16 pt-6 pb-24">
         <h1 className={productListHeadingStyle}>{headingTitle}</h1>
-
         {children}
       </main>
       <div className="absolute right-0 left-0 mx-0 max-w-full">

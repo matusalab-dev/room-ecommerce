@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import CurrencyFormatter from "../../utils/currencyFormatter";
 import { AiOutlineDelete } from "react-icons/ai";
 import CartQuantity from "./CartQuantity";
+import { useLocalStorage } from "../../hooks/useStorage";
 
 const CartItem = ({
   cartProducts,
@@ -10,6 +11,8 @@ const CartItem = ({
   handleShowCart,
   handleCartQuantity,
 }) => {
+  const [cartItems] = useLocalStorage("cart-item", cartProducts);
+
   return (
     <div className="space-y-4">
       {/* check if the cart is empty , tell them to go shopping*/}
@@ -26,8 +29,8 @@ const CartItem = ({
       )}
 
       {/* if it's not empty, render it out. */}
-      {cartProducts.length >= 1 &&
-        cartProducts.map((cartItem) => {
+      {cartItems.length >= 1 &&
+        cartItems.map((cartItem) => {
           const { id, imageUrl, name, price, quantity } = cartItem;
 
           return (

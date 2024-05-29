@@ -5,17 +5,20 @@ import { ShopsNavbar } from "../components/navbar/ShopsNavbar";
 import Cart from "../components/cart/Cart";
 import { CustomContainer } from "./CustomContainer";
 import Wishlist from "../components/wishlist/WishList";
+import { useLocalStorage } from "../hooks/useStorage";
 
 const ProductLayout = () => {
   const { productid } = useParams();
   const { productInfo, setProductInfo } = useStateContext();
 
-  // const { value, setValue } = useLocalStorage("product");
-
   const filteredProduct = productInfo.filter(
     (product) => product.id === productid
   );
-
+  // const [productItem, setProductItem] = useLocalStorage(
+  //   "product-item",
+  //   filteredProduct[0]
+  // );
+  console.log("product-item", filteredProduct[0]);
   return (
     <CustomContainer className={` max-w-[95%] flex-col mt-10`}>
       <ShopsNavbar />
