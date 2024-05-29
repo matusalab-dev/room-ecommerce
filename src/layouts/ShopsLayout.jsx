@@ -15,6 +15,10 @@ export const ShopsLayout = () => {
     productCategory.url === category;
   });
 
+  // // for productDetails
+  // const filteredProductDetails = productInfo.filter(
+  //   (product) => product.id === productid
+  // );
   console.log("filtered category", filteredCategory);
   return (
     // set relative positioning for the container if cart is Open

@@ -4,19 +4,16 @@ import { HomeLayout } from "./layouts/HomeLayout";
 import { ShopsLayout } from "./layouts/ShopsLayout";
 import ProductLayout from "./layouts/ProductLayout";
 
-import Shops from "./pages/shops";
+import Shops from "./pages/Shops";
 import ProductDetail from "./pages/ProductDetail";
-import ProductPreview from "./pages/productPreview";
+import ProductPreview from "./pages/ProductPreview";
 import Category from "./pages/Category";
 import { NotFound } from "./pages/notFound";
 
 import "./App.css";
 import "./index.css";
-import { useStateContext } from "./Contexts/StateContext";
 
 export default function App() {
-  const { handleInc, handleDec, qty, handleAddToCart } = useStateContext();
-
   return (
     <>
       <Routes>
@@ -24,8 +21,9 @@ export default function App() {
         <Route path="/" element={<HomeLayout />}></Route>
 
         {/* shops page Route*/}
-        <Route path="shopping" element={<ShopsLayout />}>
+        <Route path="shopping/" element={<ShopsLayout />}>
           <Route index element={<Shops />} />
+          {/* <Route path=":productid" element={<ProductDetail />}></Route> */}
         </Route>
 
         {/* product details page route with different shared-layout*/}
