@@ -11,7 +11,7 @@ const CartItem = ({
   handleShowCart,
   handleCartQuantity,
 }) => {
-  const [cartItems] = useLocalStorage("cart-item", cartProducts);
+  // const [cartItems] = useLocalStorage("cart-item", cartProducts);
 
   return (
     <div className="space-y-4">
@@ -29,8 +29,8 @@ const CartItem = ({
       )}
 
       {/* if it's not empty, render it out. */}
-      {cartItems.length >= 1 &&
-        cartItems.map((cartItem) => {
+      {cartProducts.length >= 1 &&
+        cartProducts.map((cartItem) => {
           const { id, imageUrl, name, price, quantity } = cartItem;
 
           return (

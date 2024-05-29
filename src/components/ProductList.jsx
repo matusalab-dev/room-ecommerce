@@ -83,9 +83,9 @@ export const ProductItem = ({ searchItem, route }) => {
     <GridLayout className="grid grid-cols-8 lg:grid-cols-6 justify-items-center lg:justify-center">
       {searchItem.map((productDetail) => {
         const isHovered = hoveredItemId === productDetail.id;
-        const isClicked = clickedItemId === productDetail.id;
+        // const isClicked = clickedItemId === productDetail.id;
 
-        console.log("clickedItemId", clickedItemId);
+        // console.log("clickedItemId", clickedItemId);
         console.log("hoveredItemId", hoveredItemId);
         // memoized hovered navLinks
         const MemoizedNavLink = memo(
