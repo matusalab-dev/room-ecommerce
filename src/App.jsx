@@ -8,7 +8,7 @@ import Shops from "./pages/Shops";
 import ProductDetail from "./pages/ProductDetail";
 import ProductPreview from "./pages/ProductPreview";
 import Category from "./pages/Category";
-import { NotFound } from "./pages/notFound";
+import { NotFound } from "./pages/NotFound";
 
 import "./App.css";
 import "./index.css";
