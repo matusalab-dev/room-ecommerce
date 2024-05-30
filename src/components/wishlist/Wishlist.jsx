@@ -27,7 +27,7 @@ const Wishlist = () => {
     >
       <header className="flex items-center gap-8 sm:gap-3 justify-between">
         <p className="text-lg xs:text-[1rem]">
-          Your wish-list items ({totalWishlistQty})
+          Your wish-list items ({wishlistItems.length})
         </p>
         <button data-message="close the cart items side-bar">
           <AiFillCloseSquare

@@ -18,9 +18,10 @@ module.exports = {
         },
       },
       fontFamily: {
-        // primary: ["Markazi Text, serif"],
         primary: ["League Spartan, sans-serif"],
-        secondary: ["Karla, sans-serif"],
+        // primary: ["Markazi Text, serif"],
+        secondary: ["Markazi Text, serif"],
+        // secondary: ["Karla, sans-serif"],
       },
       gridTemplateColumns: {
         categoryCol: "repeat(8,minmax(4.375rem, 1fr))",

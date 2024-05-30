@@ -44,7 +44,7 @@
   }
 
   .heading-collection::after {
-    @apply content-[''] bg-primary-black absolute bottom-0 left-1/2  top-[120%] xs:top-[112%] -translate-x-1/2 w-[70%] h-[2px] xs:h-[1px] sm:h-[1.5px] transition-['width'] duration-[0.3s] ease-out;
+    @apply content-[''] bg-primary-black absolute bottom-0 left-1/2  top-[118%] xs:top-[105%] -translate-x-1/2 w-[70%] h-[2px] xs:h-[1px] sm:h-[1.5px] transition-['width'] duration-[0.3s] ease-out;
   }
 
   .category__figcaption {

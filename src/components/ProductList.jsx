@@ -1,6 +1,12 @@
 import { memo, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { FaHeart, FaRegHeart, FaShoppingBasket } from "react-icons/fa";
+import {
+  FaHeart,
+  FaRegEye,
+  FaRegEyeSlash,
+  FaRegHeart,
+  FaShoppingBasket,
+} from "react-icons/fa";
 import { twMerge } from "tailwind-merge";
 
 import { useStateContext } from "../Contexts/StateContext";
@@ -25,7 +31,7 @@ export const ProductItem = ({ searchItem, route }) => {
   const hoverPopupButtons = (currentProduct, qty) => {
     // replace width with w-28 if you have more than one buttons
     return (
-      <div className="w-20 absolute -top-[170%] flex px-4 py-2 mx-auto justify-between bg-primary-white">
+      <div className="w-28 absolute -top-[170%] flex px-4 py-2 mx-auto justify-between bg-primary-white">
         <button
           role="button"
           disabled={currentProduct.inCart}
@@ -58,23 +64,23 @@ export const ProductItem = ({ searchItem, route }) => {
           ) : ( */}
           <FaRegHeart
             fontWeight="100"
-            size="20"
+            size="16"
             className="font-thin text-base text-primary-darkGray"
           />
           {/* )} */}
         </button>
 
-        {/* <button
+        <button
           role="button"
-          title="add to wish list"
-          className="w-8 h-8 items-center self-end flex justify-center text-primary-darkGray font-semibold bg-primary-white px-4 py-1 text-lg text-center translate-y-8 z-20"
+          title="views"
           onClick={() => console.log("loved it!")}
         >
-          <FaRegHeart
+          <FaRegEye
             fontWeight="100"
-            className="font-thin text-base text-primary-darkGray bg-primary-white"
+            size="20"
+            className="font-thin text-base text-primary-darkGray "
           />
-        </button> */}
+        </button>
       </div>
     );
   };
@@ -121,7 +127,7 @@ export const ProductItem = ({ searchItem, route }) => {
 
             <div className="relative bg-primary-white space-y-1  py-4 flex  flex-col items-center">
               <span className="font-semibold text-sm text-primary-darkGray">
-                ${CurrencyFormatter("en-US", productDetail.price)}
+                {CurrencyFormatter("en-US", productDetail.price)}
               </span>
               <figcaption className="text-center font-normal text-lg capitalize  max-w-[20ch]">
                 {productDetail.name}
@@ -138,12 +144,12 @@ export const ProductItem = ({ searchItem, route }) => {
 
 const ProductList = ({ headingTitle, headingClass, children }) => {
   const productListHeadingStyle = twMerge(
-    "heading-collection block mx-auto text-center text-5xl sm:text-4xl font-sans font-medium capitalize mt-10 mb-20 xs:mb-12",
+    "block mx-auto text-center text-5xl sm:text-4xl font-primary font-medium capitalize mt-10 mb-20 xs:mb-12",
     headingClass
   );
   return (
     <>
-      <main className="full-bleed inverse mt-16 pt-6 pb-24">
+      <main className=" full-bleed inverse mt-16 pt-6 pb-24">
         <h1 className={productListHeadingStyle}>{headingTitle}</h1>
         {children}
       </main>

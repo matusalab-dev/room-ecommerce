@@ -51,7 +51,7 @@ const WishlistItem = ({
                 {name}
               </NavLink>
               <p className="text-[1rem] sm:text-sm  col-[3/4] self-start place-self-end ">
-                ${CurrencyFormatter("en-US", price)}
+                {CurrencyFormatter("en-US", price)}
               </p>
 
               <button

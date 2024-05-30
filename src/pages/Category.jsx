@@ -16,18 +16,15 @@ const CategoryPreview = () => {
   // console.log("category data:", data);
   let product = [];
   for (const title in data) {
-    // console.log("data title", title);
-    // console.log("category title", CategoryTitle);
     if (title === CategoryTitle) {
       product.push(data[title]);
-      // console.log("product:", product);
     }
   }
 
   return (
     <ProductList
       headingTitle={`${CategoryTitle} Furnitures`}
-      headingClass="text-5xl font-thin xs:text-2xl"
+      headingClass="heading-collection font-normal xs:text-2xl xs:text-3xl"
       // route={`./${productDetail.id}`}
     >
       <ProductItem searchItem={product[0]} />

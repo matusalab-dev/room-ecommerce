@@ -9,10 +9,7 @@ const Shops = () => {
     <>
       <ProductCategory />
       {/* <ProductList headingTitle="Our Collections"> */}
-      <ProductList
-        headingTitle="Featured Items"
-        // productListHeadingStyle="text-7xl"
-      >
+      <ProductList headingTitle="Featured Items" headingClass="mb-0 xs:mb-0">
         <p className="mb-20 xs:mb-12 text-lg text-primary-veryDarkGray text-center">
           Must-have pieces selected every month
         </p>

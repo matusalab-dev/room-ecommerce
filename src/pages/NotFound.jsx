@@ -1,6 +1,6 @@
 import { ShopsNavbar } from "../components/navbar/ShopsNavbar";
 
-export const NotFound = () => {
+const NotFound = () => {
   return (
     <section className="custom-container px-2 py-12 text-left  md:text-center">
       <ShopsNavbar />
@@ -15,3 +15,5 @@ export const NotFound = () => {
     </section>
   );
 };
+
+export default NotFound;

@@ -8,7 +8,7 @@ const CartQuantity = ({
   styleQuantity,
 }) => {
   const mergedStyleQuantity = twMerge(
-    "text-base sm:text-sm py-0 px-2 font-secondary",
+    "text-base sm:text-sm py-0 px-2",
     styleQuantity
   );
 

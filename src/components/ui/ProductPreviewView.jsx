@@ -7,15 +7,7 @@ import CurrencyFormatter from "../../utils/currencyFormatter";
 import { CustomContainer } from "../../layouts/CustomContainer";
 
 import IconArrow from "../../assets/icons/IconArrow";
-import {
-  FaCaravan,
-  FaFileExcel,
-  FaFillDrip,
-  FaHeart,
-  FaHeartbeat,
-  FaHeartBroken,
-  FaRegHeart,
-} from "react-icons/fa";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 import CartQuantity from "../cart/CartQuantity";
 
 const ProductPreviewView = ({ productDetail, route }) => {
@@ -29,7 +21,7 @@ const ProductPreviewView = ({ productDetail, route }) => {
   return (
     <CustomContainer
       key={id}
-      className="flex my-12 justify-between flex-col  max-w-[67.7%] sm:max-w-sm xs:max-w-[19rem]"
+      className="flex my-12 justify-between flex-col  max-w-[67.7%] sm:max-w-sm xs:max-w-[19rem] font-primary"
     >
       <NavLink to={route} className=" w-max  p-0">
         <IconArrow className="rotate-180" />
@@ -38,7 +30,7 @@ const ProductPreviewView = ({ productDetail, route }) => {
       {/* {console.log("in cart", productsDetail.inCart)} */}
       <div className="flex justify-between gap-12 lg:flex-col md:pb-8">
         <div className=" flex flex-col  items-center xl:shrink-0">
-          <h1 className="mx-auto text-center capitalize text-2xl font-serif font-semibold sm:font-medium  mt-6 mb-6 ">
+          <h1 className="mx-auto text-center capitalize text-2xl font-semibold sm:font-medium  mt-6 mb-6 ">
             {name}
           </h1>
           <div className="relative basis-full max-w-md sm:max-w-sm xs:max-w-[19rem] ">
@@ -97,7 +89,7 @@ const ProductPreviewView = ({ productDetail, route }) => {
           </div>
         </div>
         <div key={id} className="flex flex-col  mt-[9.3%]  md:mt-0 space-y-10">
-          <p className="text-left text-primary-darkGray font-secondary font-thin text-sm max-w-[50ch] xs:max-w-[39ch] ">
+          <p className="text-left text-primary-darkGray text-sm max-w-[50ch] xs:max-w-[39ch] ">
             {description}
           </p>
           <div className="flex items-center justify-between  gap-8 xs:flex-col xs:items-start">
@@ -110,9 +102,7 @@ const ProductPreviewView = ({ productDetail, route }) => {
                 styleQuantity="text-lg"
               />
             </div>
-            <p className="text-xl font-normal">
-              ${CurrencyFormatter("en-US", price)}
-            </p>
+            <p className="text-xl">{CurrencyFormatter("en-US", price)}</p>
           </div>
           <div className="flex justify-between xs:flex-col xs:gap-4 gap-2 text-2xl">
             <button

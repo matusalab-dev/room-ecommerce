@@ -62,10 +62,9 @@ export const ShopsNavbar = ({ productsInfo }) => {
   const {
     totalQty,
     handleShowCart,
-    setShowWishlist,
+    wishlistItems,
     handleShowWishlist,
     totalWishlistQty,
-    productInfo,
     handleSearch,
     searchItem,
   } = useStateContext();
@@ -146,7 +145,7 @@ export const ShopsNavbar = ({ productsInfo }) => {
           </li>
           <li className="sm:mr-2 cursor-pointer" onClick={handleShowWishlist}>
             <CountBadge
-              Qty={totalWishlistQty}
+              Qty={wishlistItems.length}
               icon={
                 <AiOutlineHeart
                   className="sm:text-[1.65rem] shrink-0 "
