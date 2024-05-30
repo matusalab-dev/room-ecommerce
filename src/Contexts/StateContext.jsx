@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from "react";
 
-import CarousalList from "../data/carousalList";
-import shoppingProduct from "../data/shoppingProduct";
+import CarousalList from "../data/CarousalList";
+import shoppingProduct from "../data/ShoppingProduct";
 
 // create context
 const StateContext = createContext([]);
