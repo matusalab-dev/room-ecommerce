@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from "react";
 
 import CarousalList from "../data/CarousalList";
-import shoppingProduct from "../data/ShoppingProduct";
+import ShoppingProduct from "../data/ShoppingProduct";
 
 // create context
 const StateContext = createContext([]);
@@ -9,7 +9,7 @@ const StateContext = createContext([]);
 const StateProvider = ({ children }) => {
   const [slideIndex, setSlideIndex] = useState(0);
   // shopping Products details
-  const productsDetail = shoppingProduct();
+  const productsDetail = ShoppingProduct();
 
   // products state
   const [productInfo, setProductInfo] = useState(productsDetail);
