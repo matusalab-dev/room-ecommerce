@@ -1,9 +1,10 @@
-import { NavLinkList } from "../navbar/NavList";
 import { NavLink } from "react-router-dom";
+
+import { NavLinkList } from "../Navbar/NavList";
 import CurrencyFormatter from "../../utils/currencyFormatter";
+
 import { AiOutlineDelete } from "react-icons/ai";
 import CartQuantity from "./CartQuantity";
-import { useLocalStorage } from "../../hooks/useStorage";
 
 const CartItem = ({
   cartProducts,
@@ -11,14 +12,12 @@ const CartItem = ({
   handleShowCart,
   handleCartQuantity,
 }) => {
-  // const [cartItems] = useLocalStorage("cart-item", cartProducts);
-
   return (
     <div className="space-y-4">
-      {/* check if the cart is empty , tell them to go shopping*/}
+      {/* check if the cart is empty, tell them to go shopping*/}
       {cartProducts.length < 1 && (
-        <div className="flex flex-col gap-6 justify-center items-center ">
-          <h2 className=""> your shopping bug is empty</h2>
+        <div className="flex flex-col gap-6 justify-center items-center text-[1rem]">
+          <h2> your shopping bug is empty</h2>
           <NavLinkList
             title="go back to shopping"
             link="../shopping"

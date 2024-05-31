@@ -1,4 +1,4 @@
-import { ShopsNavbar } from "../components/navbar/ShopsNavbar";
+import { ShopsNavbar } from "../components/Navbar/ShopsNavbar";
 
 const NotFound = () => {
   return (

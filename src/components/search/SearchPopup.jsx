@@ -1,7 +1,7 @@
 import { twMerge } from "tailwind-merge";
 
 import { useStateContext } from "../../Contexts/StateContext";
-import { Overlay } from "../ui/Overlay";
+import { Overlay } from "../UI/Overlay";
 
 // import IconClose from "../../assets/icons/IconClose";
 import SearchResultCount from "./SearchResultCount";
@@ -19,7 +19,7 @@ const SearchPopup = ({ toggle, handleClosePopup, inputClass, ...props }) => {
     <Overlay
       overlayClass={`${
         toggle ? "lg:grid " : "lg:hidden"
-      } hidden  grid-cols-3 grid-rows-2 items-center gap-x-6 gap-y-3`}
+      } hidden grid-cols-3 grid-rows-2 items-center gap-x-6 gap-y-3`}
     >
       <input
         type="text"

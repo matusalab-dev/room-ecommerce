@@ -4,8 +4,6 @@ import Slides from "../layouts/Slides";
 import useToggle from "../Hooks/useToggle";
 
 export const HomeLayout = () => {
-  const { isToggled, handleIsToggled } = useToggle();
-
   return (
     <>
       {/* homepage  */}

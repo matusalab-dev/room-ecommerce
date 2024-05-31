@@ -2,7 +2,7 @@ import { twMerge } from "tailwind-merge";
 
 const SearchResultCount = ({ styleResult, searchItem, foundItem }) => {
   const mergedClass = twMerge(
-    "font-secondary text-lg font-thin sm:text-xs text-primary-veryDarkGray text-left",
+    "text-[1rem] xs:text-sm text-primary-black text-left",
     styleResult
   );
 

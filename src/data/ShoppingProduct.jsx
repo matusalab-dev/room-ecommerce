@@ -1,4 +1,4 @@
-import { SHOP_DATA } from "./categoriesData";
+import { SHOP_DATA } from "./CategoriesData";
 
 const categorizedItem = SHOP_DATA.reduce((acc, category) => {
   const { title, items } = category;
@@ -20,6 +20,6 @@ const allProducts = [
 ];
 
 // console.log(allProducts);
-const shoppingProduct = () => allProducts;
+const ShoppingProduct = () => allProducts;
 
-export default shoppingProduct;
+export default ShoppingProduct;

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 import { useStateContext } from "../Contexts/StateContext";
-import { SHOP_DATA } from "../data/categoriesData";
+import { SHOP_DATA } from "../Data/CategoriesData";
 
 const ProductCategory = () => {
   const { searchItem, setSearchItem } = useStateContext();

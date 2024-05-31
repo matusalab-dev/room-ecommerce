@@ -11,11 +11,11 @@ import { useStateContext } from "../../Contexts/StateContext";
 import useToggle from "../../Hooks/useToggle";
 import { NavList } from "./Navbar";
 import { NavHashList, NavLinkList } from "./NavList";
-import CountBadge from "../cart/CountBadge";
-import SearchInput from "../search/SearchInput";
-import SearchPopup from "../search/SearchPopup";
+import CountBadge from "../Cart/CountBadge";
+import SearchInput from "../Search/SearchInput";
+import SearchPopup from "../Search/SearchPopup";
 
-import Logo from "../ui/Logo";
+import Logo from "../UI/Logo";
 import IconClose from "../../assets/icons/IconClose";
 import IconHamburger from "../../assets/icons/IconHamburger";
 
@@ -64,7 +64,6 @@ export const ShopsNavbar = ({ productsInfo }) => {
     handleShowCart,
     wishlistItems,
     handleShowWishlist,
-    totalWishlistQty,
     handleSearch,
     searchItem,
   } = useStateContext();

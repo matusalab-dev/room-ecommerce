@@ -1,12 +1,12 @@
 import { twMerge } from "tailwind-merge";
 
 import { NavHashList, NavLinkList } from "./NavList";
-import Logo from "../ui/Logo";
+import Logo from "../UI/Logo";
 import useToggle from "../../Hooks/useToggle";
 
 import IconClose from "../../assets/icons/IconClose";
 import IconHamburger from "../../assets/icons/IconHamburger";
-import { Overlay } from "../ui/Overlay";
+import { Overlay } from "../UI/Overlay";
 
 // nav__list for home pages
 export const NavList = ({ className, handleIsToggled }) => {

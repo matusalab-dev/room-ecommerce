@@ -1,5 +1,5 @@
 import { useStateContext } from "../Contexts/StateContext";
-import { Navbar } from "../components/navbar/Navbar";
+import { Navbar } from "../components/Navbar/Navbar";
 
 const Header = () => {
   const { slideIndex, slidesDetail } = useStateContext();

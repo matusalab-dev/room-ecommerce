@@ -1,10 +1,10 @@
 import { Outlet, useParams } from "react-router-dom";
 
-import { ShopsNavbar } from "../components/navbar/ShopsNavbar";
-import Cart from "../components/cart/Cart";
+import { ShopsNavbar } from "../components/Navbar/ShopsNavbar";
+import Cart from "../components/Cart/Cart";
 import { useStateContext } from "../Contexts/StateContext";
-import SearchResultCount from "../components/search/SearchResultCount";
-import Wishlist from "../components/wishlist/WishList";
+import SearchResultCount from "../components/Search/SearchResultCount";
+import Wishlist from "../components/Wishlist/WishList";
 
 export const ShopsLayout = () => {
   const { productid } = useParams();

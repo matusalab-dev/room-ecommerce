@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { SHOP_DATA } from "../data/categoriesData";
+import { SHOP_DATA } from "../Data/CategoriesData";
 import ProductList, { ProductItem } from "../components/ProductList";
 
 const CategoryPreview = () => {

@@ -19,7 +19,6 @@ import { useLocalStorage } from "../hooks/useStorage";
 export const ProductItem = ({ searchItem, route }) => {
   const { handleAddToCart, handleAddToWishlist, qty } = useStateContext();
   const [hoveredItemId, setHoveredItemId] = useState(null);
-  const [productItem, setProductItem] = useLocalStorage("product-item", []);
 
   function handleMouseEnter(productId) {
     setHoveredItemId(productId);

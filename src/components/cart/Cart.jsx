@@ -2,7 +2,7 @@ import { useStateContext } from "../../Contexts/StateContext";
 import CurrencyFormatter from "../../utils/currencyFormatter";
 import { AiFillCloseSquare } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import CartItem from "../cart/CartItem";
+import CartItem from "./CartItem";
 
 const Cart = () => {
   const {

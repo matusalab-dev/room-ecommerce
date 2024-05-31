@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink, useOutletContext } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 import { useStateContext } from "../../Contexts/StateContext";
@@ -8,7 +8,7 @@ import { CustomContainer } from "../../layouts/CustomContainer";
 
 import IconArrow from "../../assets/icons/IconArrow";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
-import CartQuantity from "../cart/CartQuantity";
+import CartQuantity from "../Cart/CartQuantity";
 
 const ProductPreviewView = ({ productDetail, route }) => {
   const { id, name, imageVariants, imageUrl, description, price, inCart } =
@@ -21,19 +21,18 @@ const ProductPreviewView = ({ productDetail, route }) => {
   return (
     <CustomContainer
       key={id}
-      className="flex my-12 justify-between flex-col  max-w-[67.7%] sm:max-w-sm xs:max-w-[19rem] font-primary"
+      className="flex my-12 justify-between max-w-[88%] lg:max-w-sm xs:max-w-full xs:w-full xs:mx-0 sm:max-w-sm font-primary"
     >
-      <NavLink to={route} className=" w-max  p-0">
-        <IconArrow className="rotate-180" />
-      </NavLink>
-
       {/* {console.log("in cart", productsDetail.inCart)} */}
-      <div className="flex justify-between gap-12 lg:flex-col md:pb-8">
-        <div className=" flex flex-col  items-center xl:shrink-0">
-          <h1 className="mx-auto text-center capitalize text-2xl font-semibold sm:font-medium  mt-6 mb-6 ">
+      <div className="flex mx-auto items-center xs:items-stretch gap-12 lg:flex-col md:pb-8">
+        <div className=" flex flex-col items-stretch xl:shrink-0 max-w-[26rem]">
+          <NavLink to={route} className="w-max p-0">
+            <IconArrow className="rotate-180" />
+          </NavLink>
+          <h1 className="text-center capitalize text-2xl font-semibold sm:font-medium  my-6 ">
             {name}
           </h1>
-          <div className="relative basis-full max-w-md sm:max-w-sm xs:max-w-[19rem] ">
+          <div className="relative basis-full">
             <figure className="relative w-full h-full ">
               <button
                 className="absolute right-0 p-2 cursor-pointer bg-primary-black"
@@ -69,7 +68,7 @@ const ProductPreviewView = ({ productDetail, route }) => {
                 }
                 // src={productsDetail.imageUrl}
                 alt={name}
-                className="rounded-sm z-10 object-cover block w-full max-w-full h-72"
+                className="rounded-sm z-10 object-cover block w-full max-w-full h-72 xs:h-[16rem]"
               />
               <div className="flex justify-between mt-2 gap-1 overflow-x-scroll">
                 {imageVariants.map((el, i) => {
@@ -80,7 +79,7 @@ const ProductPreviewView = ({ productDetail, route }) => {
                       alt={name}
                       onMouseEnter={() => setIndex(i)}
                       onMouseLeave={() => setIndex(0)}
-                      className="w-[5.6rem] h-20 xs:w-[4.5rem] xs:h-[4.5rem] rounded-sm z-10 object-cover block  "
+                      className="w-20 h-16 rounded-sm z-10 object-cover block"
                     />
                   );
                 })}
@@ -88,7 +87,7 @@ const ProductPreviewView = ({ productDetail, route }) => {
             </figure>
           </div>
         </div>
-        <div key={id} className="flex flex-col  mt-[9.3%]  md:mt-0 space-y-10">
+        <div key={id} className="flex flex-col xs:basis-full space-y-10">
           <p className="text-left text-primary-darkGray text-sm max-w-[50ch] xs:max-w-[39ch] ">
             {description}
           </p>

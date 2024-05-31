@@ -1,5 +1,5 @@
 import { useOutletContext } from "react-router-dom";
-import ProductPreviewView from "../components/ui/ProductPreviewView";
+import ProductPreviewView from "../components/UI/ProductPreviewView";
 
 const ProductDetail = () => {
   const data = useOutletContext();

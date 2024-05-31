@@ -1,12 +1,12 @@
 import { AiOutlineSearch } from "react-icons/ai";
-import { InputComponent } from "../ui/InputComponent";
+import { InputComponent } from "../UI/InputComponent";
 
 const SearchInput = ({ searchItem, handleSearch, toggle = null }) => {
   return (
     <form
       className={`${
         toggle && "sm:flex sm:w-full"
-      } sm:hidden  w-1/2 xs:w-3/12 items-center mt-0 bg-transparent focus:border-primary-darkGray  active:border-primary-darkGray placeholder:text-primary-veryDarkGray text-primary-darkGray font-sans placeholder:font-sans font-semibold self-center `}
+      } sm:hidden w-1/2 xs:w-3/12 items-center mt-0 bg-transparent focus:border-primary-darkGray  active:border-primary-darkGray placeholder:text-primary-veryDarkGray text-primary-darkGray font-sans placeholder:font-sans font-semibold self-center `}
     >
       <InputComponent
         inputClass={`${
@@ -21,7 +21,7 @@ const SearchInput = ({ searchItem, handleSearch, toggle = null }) => {
         label={
           <AiOutlineSearch
             fontWeight="100"
-            className="   font-thin text-3xl border-none text-primary-darkGray shrink-0  hover:cursor-pointer"
+            className="font-thin text-3xl border-none text-primary-darkGray shrink-0  hover:cursor-pointer"
           />
         }
         inputWrapper="mt-0 w-full relative"

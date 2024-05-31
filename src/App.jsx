@@ -20,7 +20,7 @@ export default function App() {
         {/* Home-page route */}
         <Route path="/" element={<HomeLayout />} />
 
-        {/* shops page Route*/}
+        {/* shops-page Route */}
         <Route path="shopping/" element={<ShopsLayout />}>
           <Route index element={<Shops />} />
           <Route path=":productid" element={<ProductDetail />}></Route>

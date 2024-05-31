@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from "react";
 
-import CarousalList from "../data/CarousalList";
-import ShoppingProduct from "../data/ShoppingProduct";
+import CarousalList from "../Data/CarousalList";
+import ShoppingProduct from "../Data/ShoppingProduct";
 
 // create context
 const StateContext = createContext([]);
@@ -21,9 +21,9 @@ const StateProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [wishlistItems, setWishlistItems] = useState([]);
   const [totalQty, setTotalQty] = useState(0);
-  const [totalWishlistQty, setTotalWishlistQty] = useState(0);
+  // const [totalWishlistQty, setTotalWishlistQty] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
-  const [totalWishlistPrice, setTotalWishlistPrice] = useState(0);
+  // const [totalWishlistPrice, setTotalWishlistPrice] = useState(0);
 
   const handleShowCart = () => {
     setShowCart((prevShown) => !prevShown);
@@ -104,10 +104,10 @@ const StateProvider = ({ children }) => {
       ]);
 
       // then update price and quantity accordingly
-      setTotalWishlistQty((prevTotalQty) => prevTotalQty + quantity);
-      setTotalWishlistPrice(
-        (prevTotalPrice) => prevTotalPrice + productWishToAdd.price * quantity
-      );
+      // setTotalWishlistQty((prevTotalQty) => prevTotalQty + quantity);
+      // setTotalWishlistPrice(
+      //   (prevTotalPrice) => prevTotalPrice + productWishToAdd.price * quantity
+      // );
       // setQty(1);
     }
   }
@@ -155,11 +155,11 @@ const StateProvider = ({ children }) => {
     // update the wishlistItems
     setWishlistItems(removedItem);
 
-    setTotalWishlistQty((prevTotalQty) => prevTotalQty - productFound.quantity);
-    setTotalWishlistPrice(
-      (prevTotalPrice) =>
-        prevTotalPrice - productFound.price * productFound.quantity
-    );
+    // setTotalWishlistQty((prevTotalQty) => prevTotalQty - productFound.quantity);
+    // setTotalWishlistPrice(
+    //   (prevTotalPrice) =>
+    //     prevTotalPrice - productFound.price * productFound.quantity
+    // );
 
     // update productInfo after removing the existing wishlistItems, update in-cart state into false
     setProductInfo((prevProductInfo) => {
@@ -323,9 +323,6 @@ const StateProvider = ({ children }) => {
     wishlistItems,
     setWishlistItems,
     handleShowWishlist,
-    totalWishlistQty,
-    totalWishlistPrice,
-    setTotalWishlistPrice,
   };
 
   return (

@@ -1,4 +1,4 @@
-import { NavLinkList } from "../navbar/NavList";
+import { NavLinkList } from "../Navbar/NavList";
 import { NavLink } from "react-router-dom";
 import CurrencyFormatter from "../../utils/currencyFormatter";
 import { AiOutlineDelete } from "react-icons/ai";
@@ -15,8 +15,8 @@ const WishlistItem = ({
     <div className="space-y-4">
       {/* check if the cart is empty , tell them to go shopping*/}
       {wishlistProducts.length < 1 && (
-        <div className="flex flex-col gap-6 justify-center items-center">
-          <h2 className="font-thin"> your wish-list is empty</h2>
+        <div className="flex flex-col gap-6 justify-center items-center text-[1rem]">
+          <h2 className=""> your wish-list is empty</h2>
           <NavLinkList
             title="go back to shopping"
             link="../shopping"
